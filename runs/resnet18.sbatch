@@ -7,7 +7,9 @@
 #SBATCH --job-name=resnet18
 #SBATCH --output=resnet18.out
 
-module purge
 module load python/intel/3.8.6
+module load openmpi/intel/4.0.5
 
-python3 ./../main.py 
+source ../../venvs/dl/bin/activate
+time python3 ../main.py 
+
