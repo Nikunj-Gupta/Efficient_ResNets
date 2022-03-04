@@ -117,7 +117,7 @@ if __name__ == '__main__':
     # Model
     print('==> Building model..')
     # net = VGG('VGG19')
-    # net = ResNet18()
+    net = ResNet18()
     # net = PreActResNet18()
     # net = GoogLeNet()
     # net = DenseNet121()
@@ -130,7 +130,7 @@ if __name__ == '__main__':
     # net = ShuffleNetV2(1)
     # net = EfficientNetB0()
     # net = RegNetX_200MF()
-    net = SimpleDLA()
+    # net = SimpleDLA()
     net = net.to(device)
     if device == 'cuda':
         net = torch.nn.DataParallel(net)
