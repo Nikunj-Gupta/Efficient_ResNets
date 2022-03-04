@@ -10,6 +10,6 @@
 module load python/intel/3.8.6
 module load openmpi/intel/4.0.5
 
-source ../../venvs/dl/bin/activate
-time python3 ../main.py 
+source ../venvs/dl/bin/activate
+time python3 main.py 
 
