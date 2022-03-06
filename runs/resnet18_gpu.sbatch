@@ -5,11 +5,11 @@
 #SBATCH --time=1:00:00
 #SBATCH --mem=40GB
 #SBATCH --gres=gpu:1 
-#SBATCH --output=resnet18_gpu_gradclip.out
+#SBATCH --output=resnet18_gpu_gradclip_sgd_lr9.out
 
 
 module load python/intel/3.8.6
 module load openmpi/intel/4.0.5
 
 source ../venvs/dl/bin/activate
-time python3 main.py 
+time python3 main.py --lr 0.9
