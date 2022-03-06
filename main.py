@@ -85,7 +85,7 @@ def test(epoch):
         }
         if not os.path.isdir('checkpoint'):
             os.mkdir('checkpoint')
-        torch.save(state, './checkpoint/ckpt.pth')
+        torch.save(state, './checkpoint/ckpt_adam.pth')
         best_acc = acc
 
 
@@ -167,7 +167,7 @@ if __name__ == '__main__':
     #                     weight_decay=5e-4)
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=200)
 
-    writer = SummaryWriter('summaries/SGD_gradclip_batch1024_lr0.9')
+    writer = SummaryWriter('summaries/Adam_gradclip_batch1024_lr0.9')
 
     for epoch in range(start_epoch, start_epoch+200):
         train(epoch)
