@@ -27,6 +27,7 @@ def train(epoch):
         outputs = net(inputs)
         loss = criterion(outputs, targets)
         loss.backward()
+        nn.utils.clip_grad_value_(net.parameters(), clip_value=0.1) 
         optimizer.step()
 
         train_loss += loss.item()
@@ -34,7 +35,7 @@ def train(epoch):
         total += targets.size(0)
         correct += predicted.eq(targets).sum().item()
 
-        print('Epoch: %d | Loss: %.3f | Acc: %.3f%% (%d/%d)'% (epoch, train_loss/(batch_idx+1), 100.*correct/total, correct, total))
+        print('Epoch: %d | Train Loss: %.3f | Train Acc: %.3f%% (%d/%d)'% (epoch, train_loss/(batch_idx+1), 100.*correct/total, correct, total))
 
 def test(epoch):
     global best_acc
@@ -53,7 +54,7 @@ def test(epoch):
             total += targets.size(0)
             correct += predicted.eq(targets).sum().item() 
 
-            print('Epoch: %d | Loss: %.3f | Acc: %.3f%% (%d/%d)'% ( epoch, test_loss/(batch_idx+1), 100.*correct/total, correct, total))
+            print('Epoch: %d | Test Loss: %.3f | Test Acc: %.3f%% (%d/%d)'% ( epoch, test_loss/(batch_idx+1), 100.*correct/total, correct, total))
 
     # Save checkpoint.
     acc = 100.*correct/total
@@ -100,12 +101,12 @@ if __name__ == '__main__':
     trainset = torchvision.datasets.CIFAR10(
         root='./data', train=True, download=True, transform=transform_train)
     trainloader = torch.utils.data.DataLoader(
-        trainset, batch_size=400, shuffle=True, num_workers=3)
+        trainset, batch_size=800, shuffle=True, num_workers=16)
 
     testset = torchvision.datasets.CIFAR10(
         root='./data', train=False, download=True, transform=transform_test)
     testloader = torch.utils.data.DataLoader(
-        testset, batch_size=800, shuffle=False, num_workers=3)
+        testset, batch_size=500, shuffle=False, num_workers=16)
 
     classes = ('plane', 'car', 'bird', 'cat', 'deer',
             'dog', 'frog', 'horse', 'ship', 'truck')
