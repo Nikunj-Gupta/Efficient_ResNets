@@ -5,7 +5,7 @@
 #SBATCH --time=1:00:00
 #SBATCH --mem=40GB
 #SBATCH --gres=gpu:1 
-#SBATCH --output=resnet18_gpu_adam.out
+#SBATCH --output=resnet18_gpu_gradclip.out
 
 
 module load python/intel/3.8.6
