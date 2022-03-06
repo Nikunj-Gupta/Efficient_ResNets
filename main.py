@@ -101,7 +101,7 @@ if __name__ == '__main__':
     trainset = torchvision.datasets.CIFAR10(
         root='./data', train=True, download=True, transform=transform_train)
     trainloader = torch.utils.data.DataLoader(
-        trainset, batch_size=800, shuffle=True, num_workers=16)
+        trainset, batch_size=1024, shuffle=True, num_workers=16)
 
     testset = torchvision.datasets.CIFAR10(
         root='./data', train=False, download=True, transform=transform_test)
@@ -143,10 +143,10 @@ if __name__ == '__main__':
         start_epoch = checkpoint['epoch']
 
     criterion = nn.CrossEntropyLoss()
-    # optimizer = optim.SGD(net.parameters(), lr=args.lr,
-    #                     momentum=0.9, weight_decay=5e-4)
-    optimizer = optim.Adam(net.parameters(), lr=args.lr,
-                        weight_decay=5e-4)
+    optimizer = optim.SGD(net.parameters(), lr=args.lr,
+                        momentum=0.9, weight_decay=5e-4)
+    # optimizer = optim.Adam(net.parameters(), lr=args.lr,
+    #                     weight_decay=5e-4)
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=200)
 
     for epoch in range(start_epoch, start_epoch+200):
