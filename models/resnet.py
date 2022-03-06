@@ -8,7 +8,8 @@ Reference:
 '''
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
+import torch.nn.functional as F 
+import numpy as np 
 
 
 class BasicBlock(nn.Module):
@@ -104,6 +105,9 @@ class ResNet(nn.Module):
         return out
 
 
+def ResNet9():
+    return ResNet(BasicBlock, [2, 2])
+
 def ResNet18():
     return ResNet(BasicBlock, [2, 2, 2, 2])
 
@@ -129,4 +133,14 @@ def test():
     y = net(torch.randn(1, 3, 32, 32))
     print(y.size())
 
-# test()
+def test2():
+    net = ResNet9()
+    total_params = 0
+
+    for x in filter(lambda p: p.requires_grad, net.parameters()):
+        total_params += np.prod(x.data.numpy().shape)
+    print("Total number of params", total_params)
+    print("Total layers", len(list(filter(lambda p: p.requires_grad and len(p.data.size())>1, net.parameters()))))
+
+
+# test2() 
