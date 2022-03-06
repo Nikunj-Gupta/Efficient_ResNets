@@ -4,6 +4,7 @@ import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
 import torch.backends.cudnn as cudnn
+from torch.utils.tensorboard import SummaryWriter
 
 import torchvision
 import torchvision.transforms as transforms
@@ -21,6 +22,8 @@ def train(epoch):
     train_loss = 0
     correct = 0
     total = 0
+    train_losses = [] 
+    train_acc = [] 
     for batch_idx, (inputs, targets) in enumerate(trainloader):
         inputs, targets = inputs.to(device), targets.to(device)
         optimizer.zero_grad()
@@ -31,16 +34,26 @@ def train(epoch):
         optimizer.step()
 
         train_loss += loss.item()
+        train_losses.append(train_loss)
         _, predicted = outputs.max(1)
         total += targets.size(0)
-        correct += predicted.eq(targets).sum().item()
+        correct += predicted.eq(targets).sum().item() 
 
-        print('Epoch: %d | Train Loss: %.3f | Train Acc: %.3f%% (%d/%d)'% (epoch, train_loss/(batch_idx+1), 100.*correct/total, correct, total))
+        train_acc.append(100.*correct/total) 
+
+        print('Batch_idx: %d | Train Loss: %.3f | Train Acc: %.3f%% (%d/%d)'% (batch_idx, train_loss/(batch_idx+1), 100.*correct/total, correct, total)) 
+
+    writer.add_scalar('Loss/train_loss', np.mean(train_losses), epoch) 
+    writer.add_scalar('Accuracy/train_accuracy', np.mean(train_acc), epoch) 
+    
+
 
 def test(epoch):
     global best_acc
     net.eval()
     test_loss = 0
+    test_losses = [] 
+    test_acc = [] 
     correct = 0
     total = 0
     with torch.no_grad():
@@ -50,11 +63,16 @@ def test(epoch):
             loss = criterion(outputs, targets)
 
             test_loss += loss.item()
+            test_losses.append(test_loss)
             _, predicted = outputs.max(1)
             total += targets.size(0)
             correct += predicted.eq(targets).sum().item() 
+            test_acc.append(100.*correct/total)
 
-            print('Epoch: %d | Test Loss: %.3f | Test Acc: %.3f%% (%d/%d)'% ( epoch, test_loss/(batch_idx+1), 100.*correct/total, correct, total))
+            print('Batch_idx: %d | Test Loss: %.3f | Test Acc: %.3f%% (%d/%d)'% ( batch_idx, test_loss/(batch_idx+1), 100.*correct/total, correct, total)) 
+
+        writer.add_scalar('Loss/test_loss', np.mean(test_losses), epoch) 
+        writer.add_scalar('Accuracy/test_accuracy', np.mean(test_acc), epoch) 
 
     # Save checkpoint.
     acc = 100.*correct/total
@@ -149,7 +167,10 @@ if __name__ == '__main__':
     #                     weight_decay=5e-4)
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=200)
 
+    writer = SummaryWriter('summaries/SGD_gradclip_batch1024_lr0.9')
+
     for epoch in range(start_epoch, start_epoch+200):
         train(epoch)
         test(epoch)
         scheduler.step()
+    writer.close() 
