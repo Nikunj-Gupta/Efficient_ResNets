@@ -11,4 +11,4 @@ module load python/intel/3.8.6
 module load openmpi/intel/4.0.5
 
 source ../venvs/dl/bin/activate
-time python3 main.py  --exp optimizers/sgd_ExponentialLR --opt sgd --lr_sched ExponentialLR
+time python3 main.py  --exp optimizers/sgd_ExponentialLR --opt sgd --lr_sched ExponentialLR --data_augmentation --data_normalize --grad_clip 0.1

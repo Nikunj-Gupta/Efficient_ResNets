@@ -11,4 +11,4 @@ module load python/intel/3.8.6
 module load openmpi/intel/4.0.5
 
 source ../venvs/dl/bin/activate
-time python3 main.py  --exp optimizers/adam --opt adam
+time python3 main.py  --exp optimizers/adam --opt adam --data_augmentation --data_normalize --grad_clip 0.1

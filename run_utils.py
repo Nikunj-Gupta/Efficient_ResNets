@@ -30,7 +30,8 @@ for opt in ['sgd', 'adam']:
                 command, 
                 "--exp", exp, 
                 "--opt", opt, 
-                "--lr_sched", lr_sched 
+                "--lr_sched", lr_sched, 
+                '--data_augmentation', '--data_normalize', "--grad_clip", str(0.1), 
             ])
 
             # print(command) 
@@ -56,6 +57,7 @@ for opt in ['sgd', 'adam']:
             command, 
             "--exp", exp, 
             "--opt", opt, 
+            '--data_augmentation', '--data_normalize', "--grad_clip", str(0.1), 
         ])
         # print(command) 
         log_dir = Path(dumpdir)

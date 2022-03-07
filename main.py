@@ -33,7 +33,6 @@ def train(epoch, args):
         train_acc.append(100.*correct/total) 
 
         # print('Batch_idx: %d | Train Loss: %.3f | Train Acc: %.3f%% (%d/%d)'% (batch_idx, train_loss/(batch_idx+1), 100.*correct/total, correct, total)) 
-        break 
 
     writer.add_scalar('Loss/train_loss', np.mean(train_losses), epoch) 
     writer.add_scalar('Accuracy/train_accuracy', np.mean(train_acc), epoch) 
@@ -62,14 +61,13 @@ def test(epoch, args):
             test_acc.append(100.*correct/total) 
 
             # print('Batch_idx: %d | Test Loss: %.3f | Test Acc: %.3f%% (%d/%d)'% ( batch_idx, test_loss/(batch_idx+1), 100.*correct/total, correct, total)) 
-            break 
 
         writer.add_scalar('Loss/test_loss', np.mean(test_losses), epoch) 
         writer.add_scalar('Accuracy/test_accuracy', np.mean(test_acc), epoch) 
 
     # Save checkpoint.
     acc = 100.*correct/total
-    if acc != best_acc:
+    if acc > best_acc:
         print('Saving..')
         state = {
             'net': net.state_dict(),
@@ -96,8 +94,8 @@ if __name__ == '__main__':
     parser.add_argument('--lr', default=0.1, type=float, help='learning rate')
     parser.add_argument('--weight_decay', default=5e-4, type=float, help='weight decay for optimizer')
 
-    parser.add_argument('--batch_size', default=128, type=int, help='bathc size for training and testing')
-    parser.add_argument('--num_workers', default=2, type=int, help='num workers for data loader')
+    parser.add_argument('--batch_size', default=1024, type=int, help='bathc size for training and testing')
+    parser.add_argument('--num_workers', default=16, type=int, help='num workers for data loader')
 
     parser.add_argument('--resume', '-r', action='store_true', help='resume from checkpoint')
     parser.add_argument('--resume_ckpt', type=str, help='resume from checkpoint')
