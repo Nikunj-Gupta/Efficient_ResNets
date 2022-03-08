@@ -1,0 +1,512 @@
+==> Preparing data..
+Files already downloaded and verified
+Files already downloaded and verified
+==> Building model..
+
+Epoch: 0
+/share/apps/python/3.8.6/intel/lib/python3.8/site-packages/setuptools/distutils_patch.py:25: UserWarning: Distutils was imported before Setuptools. This usage is discouraged and may exhibit undesirable behaviors or errors. Please use Setuptools' objects directly or at least import Setuptools first.
+  warnings.warn(
+Saving..
+
+Epoch: 1
+Saving..
+
+Epoch: 2
+Saving..
+
+Epoch: 3
+Saving..
+
+Epoch: 4
+Saving..
+
+Epoch: 5
+Saving..
+
+Epoch: 6
+Saving..
+
+Epoch: 7
+Saving..
+
+Epoch: 8
+Saving..
+
+Epoch: 9
+Saving..
+
+Epoch: 10
+Saving..
+
+Epoch: 11
+
+Epoch: 12
+Saving..
+
+Epoch: 13
+Saving..
+
+Epoch: 14
+Saving..
+
+Epoch: 15
+
+Epoch: 16
+
+Epoch: 17
+
+Epoch: 18
+Saving..
+
+Epoch: 19
+
+Epoch: 20
+Saving..
+
+Epoch: 21
+
+Epoch: 22
+Saving..
+
+Epoch: 23
+Saving..
+
+Epoch: 24
+
+Epoch: 25
+Saving..
+
+Epoch: 26
+Saving..
+
+Epoch: 27
+
+Epoch: 28
+
+Epoch: 29
+
+Epoch: 30
+Saving..
+
+Epoch: 31
+
+Epoch: 32
+Saving..
+
+Epoch: 33
+
+Epoch: 34
+
+Epoch: 35
+Saving..
+
+Epoch: 36
+
+Epoch: 37
+Saving..
+
+Epoch: 38
+
+Epoch: 39
+Saving..
+
+Epoch: 40
+Saving..
+
+Epoch: 41
+Saving..
+
+Epoch: 42
+
+Epoch: 43
+
+Epoch: 44
+Saving..
+
+Epoch: 45
+Saving..
+
+Epoch: 46
+
+Epoch: 47
+Saving..
+
+Epoch: 48
+Saving..
+
+Epoch: 49
+
+Epoch: 50
+Saving..
+
+Epoch: 51
+
+Epoch: 52
+
+Epoch: 53
+Saving..
+
+Epoch: 54
+
+Epoch: 55
+
+Epoch: 56
+
+Epoch: 57
+Saving..
+
+Epoch: 58
+Saving..
+
+Epoch: 59
+Saving..
+
+Epoch: 60
+
+Epoch: 61
+Saving..
+
+Epoch: 62
+Saving..
+
+Epoch: 63
+Saving..
+
+Epoch: 64
+
+Epoch: 65
+
+Epoch: 66
+Saving..
+
+Epoch: 67
+Saving..
+
+Epoch: 68
+
+Epoch: 69
+
+Epoch: 70
+
+Epoch: 71
+Saving..
+
+Epoch: 72
+
+Epoch: 73
+
+Epoch: 74
+Saving..
+
+Epoch: 75
+Saving..
+
+Epoch: 76
+
+Epoch: 77
+
+Epoch: 78
+Saving..
+
+Epoch: 79
+Saving..
+
+Epoch: 80
+
+Epoch: 81
+
+Epoch: 82
+Saving..
+
+Epoch: 83
+Saving..
+
+Epoch: 84
+
+Epoch: 85
+Saving..
+
+Epoch: 86
+
+Epoch: 87
+Saving..
+
+Epoch: 88
+Saving..
+
+Epoch: 89
+
+Epoch: 90
+
+Epoch: 91
+Saving..
+
+Epoch: 92
+Saving..
+
+Epoch: 93
+
+Epoch: 94
+
+Epoch: 95
+Saving..
+
+Epoch: 96
+
+Epoch: 97
+
+Epoch: 98
+
+Epoch: 99
+
+Epoch: 100
+Saving..
+
+Epoch: 101
+
+Epoch: 102
+
+Epoch: 103
+
+Epoch: 104
+
+Epoch: 105
+Saving..
+
+Epoch: 106
+
+Epoch: 107
+Saving..
+
+Epoch: 108
+
+Epoch: 109
+Saving..
+
+Epoch: 110
+Saving..
+
+Epoch: 111
+
+Epoch: 112
+
+Epoch: 113
+Saving..
+
+Epoch: 114
+Saving..
+
+Epoch: 115
+
+Epoch: 116
+Saving..
+
+Epoch: 117
+
+Epoch: 118
+Saving..
+
+Epoch: 119
+
+Epoch: 120
+Saving..
+
+Epoch: 121
+
+Epoch: 122
+
+Epoch: 123
+Saving..
+
+Epoch: 124
+
+Epoch: 125
+
+Epoch: 126
+Saving..
+
+Epoch: 127
+
+Epoch: 128
+Saving..
+
+Epoch: 129
+
+Epoch: 130
+
+Epoch: 131
+
+Epoch: 132
+Saving..
+
+Epoch: 133
+Saving..
+
+Epoch: 134
+
+Epoch: 135
+Saving..
+
+Epoch: 136
+
+Epoch: 137
+Saving..
+
+Epoch: 138
+
+Epoch: 139
+
+Epoch: 140
+Saving..
+
+Epoch: 141
+Saving..
+
+Epoch: 142
+Saving..
+
+Epoch: 143
+Saving..
+
+Epoch: 144
+
+Epoch: 145
+
+Epoch: 146
+
+Epoch: 147
+Saving..
+
+Epoch: 148
+
+Epoch: 149
+
+Epoch: 150
+
+Epoch: 151
+Saving..
+
+Epoch: 152
+Saving..
+
+Epoch: 153
+
+Epoch: 154
+Saving..
+
+Epoch: 155
+Saving..
+
+Epoch: 156
+
+Epoch: 157
+Saving..
+
+Epoch: 158
+Saving..
+
+Epoch: 159
+Saving..
+
+Epoch: 160
+
+Epoch: 161
+
+Epoch: 162
+
+Epoch: 163
+Saving..
+
+Epoch: 164
+Saving..
+
+Epoch: 165
+Saving..
+
+Epoch: 166
+
+Epoch: 167
+Saving..
+
+Epoch: 168
+Saving..
+
+Epoch: 169
+
+Epoch: 170
+Saving..
+
+Epoch: 171
+
+Epoch: 172
+
+Epoch: 173
+
+Epoch: 174
+Saving..
+
+Epoch: 175
+Saving..
+
+Epoch: 176
+Saving..
+
+Epoch: 177
+Saving..
+
+Epoch: 178
+
+Epoch: 179
+Saving..
+
+Epoch: 180
+
+Epoch: 181
+
+Epoch: 182
+
+Epoch: 183
+
+Epoch: 184
+Saving..
+
+Epoch: 185
+
+Epoch: 186
+Saving..
+
+Epoch: 187
+
+Epoch: 188
+Saving..
+
+Epoch: 189
+Saving..
+
+Epoch: 190
+Saving..
+
+Epoch: 191
+Saving..
+
+Epoch: 192
+
+Epoch: 193
+
+Epoch: 194
+
+Epoch: 195
+
+Epoch: 196
+
+Epoch: 197
+Saving..
+
+Epoch: 198
+
+Epoch: 199
+Saving..
+
+real	52m6.254s
+user	156m30.170s
+sys	19m1.237s
