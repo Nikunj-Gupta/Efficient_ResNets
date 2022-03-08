@@ -20,7 +20,7 @@ for opt in ['sgd', 'adam']:
                              'CyclicLR',  'CyclicLR2',  'CyclicLR3', 
                              'OneCycleLR',  'OneCycleLR2',  'CosineAnnealingWarmRestarts']: 
             exp = os.path.join('optimizers', '_'.join([opt, lr_sched])) 
-            command = fixed_text + "#SBATCH --job-name="+exp+"\n" + "#SBATCH --output="+exp+".out\n"
+            command = fixed_text + "#SBATCH --job-name="+lr_sched+"\n" + "#SBATCH --output="+lr_sched+".out\n"
             command += "\nmodule load python/intel/3.8.6\n"\
                         "module load openmpi/intel/4.0.5\n"\
                         "\nsource ../venvs/dl/bin/activate\n"\
@@ -47,7 +47,7 @@ for opt in ['sgd', 'adam']:
                     break
     elif opt=='adam': 
         exp = os.path.join('optimizers', opt) 
-        command = fixed_text + "#SBATCH --job-name="+exp+"\n" + "#SBATCH --output="+exp+".out\n"
+        command = fixed_text + "#SBATCH --job-name="+opt+"\n" + "#SBATCH --output="+opt+".out\n"
         command += "\nmodule load python/intel/3.8.6\n"\
                     "module load openmpi/intel/4.0.5\n"\
                     "\nsource ../venvs/dl/bin/activate\n"\

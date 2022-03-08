@@ -4,8 +4,8 @@
 #SBATCH --time=1:00:00
 #SBATCH --mem=40GB
 #SBATCH --gres=gpu:1
-#SBATCH --job-name=optimizers/sgd_MultiplicativeLR
-#SBATCH --output=optimizers/sgd_MultiplicativeLR.out
+#SBATCH --job-name=MultiplicativeLR
+#SBATCH --output=MultiplicativeLR.out
 
 module load python/intel/3.8.6
 module load openmpi/intel/4.0.5

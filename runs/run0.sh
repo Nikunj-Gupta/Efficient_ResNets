@@ -4,8 +4,8 @@
 #SBATCH --time=1:00:00
 #SBATCH --mem=40GB
 #SBATCH --gres=gpu:1
-#SBATCH --job-name=optimizers/sgd_CosineAnnealingLR
-#SBATCH --output=optimizers/sgd_CosineAnnealingLR.out
+#SBATCH --job-name=CosineAnnealingLR
+#SBATCH --output=CosineAnnealingLR.out
 
 module load python/intel/3.8.6
 module load openmpi/intel/4.0.5

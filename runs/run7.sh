@@ -4,8 +4,8 @@
 #SBATCH --time=1:00:00
 #SBATCH --mem=40GB
 #SBATCH --gres=gpu:1
-#SBATCH --job-name=optimizers/sgd_CyclicLR2
-#SBATCH --output=optimizers/sgd_CyclicLR2.out
+#SBATCH --job-name=CyclicLR2
+#SBATCH --output=CyclicLR2.out
 
 module load python/intel/3.8.6
 module load openmpi/intel/4.0.5
