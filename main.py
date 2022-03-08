@@ -31,14 +31,12 @@ def train(epoch, args):
         correct += predicted.eq(targets).sum().item() 
 
         train_acc.append(100.*correct/total) 
-
         # print('Batch_idx: %d | Train Loss: %.3f | Train Acc: %.3f%% (%d/%d)'% (batch_idx, train_loss/(batch_idx+1), 100.*correct/total, correct, total)) 
 
     writer.add_scalar('Loss/train_loss', np.mean(train_losses), epoch) 
     writer.add_scalar('Accuracy/train_accuracy', np.mean(train_acc), epoch) 
     
-
-
+# Testing 
 def test(epoch, args):
     global best_acc
     net.eval()
@@ -59,7 +57,6 @@ def test(epoch, args):
             total += targets.size(0)
             correct += predicted.eq(targets).sum().item() 
             test_acc.append(100.*correct/total) 
-
             # print('Batch_idx: %d | Test Loss: %.3f | Test Acc: %.3f%% (%d/%d)'% ( batch_idx, test_loss/(batch_idx+1), 100.*correct/total, correct, total)) 
 
         writer.add_scalar('Loss/test_loss', np.mean(test_losses), epoch) 
@@ -75,8 +72,6 @@ def test(epoch, args):
             'epoch': epoch,
             'args': args
         }
-        # if not os.path.isdir('summaries'):
-        #     os.mkdir('summaries')
         torch.save(state, os.path.join('./summaries/', args.exp, 'ckpt.pth'))
         best_acc = acc
 
@@ -84,29 +79,20 @@ def test(epoch, args):
 if __name__ == '__main__': 
 
     parser = argparse.ArgumentParser(description='PyTorch CIFAR10 Training')
-    
     parser.add_argument('--exp', default='test_exp', type=str, help='experiment name')
-
+    parser.add_argument('--max_epochs', default=300, type=int, help='maximum number of epochs for training')
     parser.add_argument('--optim', default='sgd', type=str, help='sgd/adam')
     parser.add_argument('--lr_sched', default='CosineAnnealingLR', type=str, help='lr schedulers for sgd')
     parser.add_argument('--momentum', default=0.9, type=float, help='momentum for sgd')
-
     parser.add_argument('--lr', default=0.9, type=float, help='learning rate')
     parser.add_argument('--weight_decay', default=5e-4, type=float, help='weight decay for optimizer')
-
-    parser.add_argument('--batch_size', default=1024, type=int, help='bathc size for training and testing')
+    parser.add_argument('--batch_size', default=1024, type=int, help='batch size for training and testing')
     parser.add_argument('--num_workers', default=16, type=int, help='num workers for data loader')
-
     parser.add_argument('--resume', '-r', action='store_true', help='resume from checkpoint')
     parser.add_argument('--resume_ckpt', type=str, help='resume from checkpoint')
- 
     parser.add_argument('--data_augmentation', action='store_true', help='augment data or not')
     parser.add_argument('--data_normalize', action='store_true', help='normalize data or not')
-    
     parser.add_argument('--grad_clip', default=None, type=float, help='grad_clip')
-
-    
-    
     args = parser.parse_args()
 
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -117,29 +103,18 @@ if __name__ == '__main__':
     print('==> Preparing data..')
     train_trans = [transforms.ToTensor()]
     test_trans = [transforms.ToTensor()]
-
     if args.data_augmentation: 
         train_trans.append(transforms.RandomCrop(32, padding=4)) 
         train_trans.append(transforms.RandomHorizontalFlip()) 
-
     if args.data_normalize: 
         train_trans.append(transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010))) 
         test_trans.append(transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010))) 
-
-
     transform_train = transforms.Compose(train_trans) 
-
     transform_test = transforms.Compose(test_trans) 
-
-    trainset = torchvision.datasets.CIFAR10(
-        root='./data', train=True, download=True, transform=transform_train)
-    trainloader = torch.utils.data.DataLoader(
-        trainset, batch_size=args.batch_size, shuffle=True, num_workers=args.num_workers)
-
-    testset = torchvision.datasets.CIFAR10(
-        root='./data', train=False, download=True, transform=transform_test)
-    testloader = torch.utils.data.DataLoader(
-        testset, batch_size=int(args.batch_size/4), shuffle=False, num_workers=args.num_workers)
+    trainset = torchvision.datasets.CIFAR10(root='./data', train=True, download=True, transform=transform_train)
+    trainloader = torch.utils.data.DataLoader(trainset, batch_size=args.batch_size, shuffle=True, num_workers=args.num_workers)
+    testset = torchvision.datasets.CIFAR10(root='./data', train=False, download=True, transform=transform_test)
+    testloader = torch.utils.data.DataLoader(testset, batch_size=int(args.batch_size/4), shuffle=False, num_workers=args.num_workers)
 
     classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
 
@@ -164,7 +139,7 @@ if __name__ == '__main__':
     if args.optim == 'sgd': optimizer = optim.SGD(net.parameters(), lr=args.lr, momentum=args.momentum, weight_decay=args.weight_decay) 
     if args.optim == 'adam': optimizer = optim.Adam(net.parameters(), lr=args.lr, weight_decay=args.weight_decay)
 
-    if args.lr_sched == 'CosineAnnealingLR': scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=200) 
+    if args.lr_sched == 'CosineAnnealingLR': scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=200) # Good 
     if args.lr_sched == 'LambdaLR': scheduler =torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda epoch: 0.65 ** epoch)
     if args.lr_sched == 'MultiplicativeLR': scheduler =torch.optim.lr_scheduler.MultiplicativeLR(optimizer, lr_lambda=lambda epoch: 0.65 ** epoch)
     if args.lr_sched == 'StepLR': scheduler =torch.optim.lr_scheduler.StepLR(optimizer, step_size=2, gamma=0.1) 
@@ -179,11 +154,8 @@ if __name__ == '__main__':
 
     writer = SummaryWriter('summaries/'+args.exp) 
 
-    for epoch in range(start_epoch, start_epoch+200):
+    for epoch in range(start_epoch, args.max_epochs): 
         train(epoch, args) 
         test(epoch, args) 
         scheduler.step()
     writer.close() 
-
-
-

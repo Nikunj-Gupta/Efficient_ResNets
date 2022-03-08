@@ -4,11 +4,11 @@
 #SBATCH --time=1:00:00
 #SBATCH --mem=40GB
 #SBATCH --gres=gpu:1
-#SBATCH --job-name=adam_CosineAnnealingLR
-#SBATCH --output=adam_CosineAnnealingLR.out
+#SBATCH --job-name=batch_size128_lr0.1
+#SBATCH --output=batch_size128_lr0.1.out
 
 module load python/intel/3.8.6
 module load openmpi/intel/4.0.5
 
 source ../venvs/dl/bin/activate
-time python3 main.py  --exp optimizers/adam_CosineAnnealingLR --opt adam --lr_sched CosineAnnealingLR --data_augmentation --data_normalize --grad_clip 0.1
+time python3 main.py  --exp batch_size_lr/batch_size128_lr0.1 --batch_size 128 --lr 0.1 --data_augmentation --data_normalize --grad_clip 0.1
