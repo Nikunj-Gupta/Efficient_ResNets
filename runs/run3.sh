@@ -4,11 +4,11 @@
 #SBATCH --time=1:00:00
 #SBATCH --mem=40GB
 #SBATCH --gres=gpu:1
-#SBATCH --job-name=StepLR
-#SBATCH --output=StepLR.out
+#SBATCH --job-name=adam_MultiplicativeLR
+#SBATCH --output=adam_MultiplicativeLR.out
 
 module load python/intel/3.8.6
 module load openmpi/intel/4.0.5
 
 source ../venvs/dl/bin/activate
-time python3 main.py  --exp optimizers/sgd_StepLR --opt sgd --lr_sched StepLR --data_augmentation --data_normalize --grad_clip 0.1
+time python3 main.py  --exp optimizers/adam_MultiplicativeLR --opt adam --lr_sched MultiplicativeLR --data_augmentation --data_normalize --grad_clip 0.1

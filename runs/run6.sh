@@ -4,11 +4,11 @@
 #SBATCH --time=1:00:00
 #SBATCH --mem=40GB
 #SBATCH --gres=gpu:1
-#SBATCH --job-name=CyclicLR
-#SBATCH --output=CyclicLR.out
+#SBATCH --job-name=adam_ExponentialLR
+#SBATCH --output=adam_ExponentialLR.out
 
 module load python/intel/3.8.6
 module load openmpi/intel/4.0.5
 
 source ../venvs/dl/bin/activate
-time python3 main.py  --exp optimizers/sgd_CyclicLR --opt sgd --lr_sched CyclicLR --data_augmentation --data_normalize --grad_clip 0.1
+time python3 main.py  --exp optimizers/adam_ExponentialLR --opt adam --lr_sched ExponentialLR --data_augmentation --data_normalize --grad_clip 0.1

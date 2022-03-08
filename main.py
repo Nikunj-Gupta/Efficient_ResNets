@@ -161,29 +161,29 @@ if __name__ == '__main__':
 
     criterion = nn.CrossEntropyLoss()
 
-    if args.optim == 'sgd': 
-        optimizer = optim.SGD(net.parameters(), lr=args.lr, momentum=args.momentum, weight_decay=args.weight_decay) 
-        if args.lr_sched == 'CosineAnnealingLR': scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=200) 
-        if args.lr_sched == 'LambdaLR': scheduler =torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda epoch: 0.65 ** epoch)
-        if args.lr_sched == 'MultiplicativeLR': scheduler =torch.optim.lr_scheduler.MultiplicativeLR(optimizer, lr_lambda=lambda epoch: 0.65 ** epoch)
-        if args.lr_sched == 'StepLR': scheduler =torch.optim.lr_scheduler.StepLR(optimizer, step_size=2, gamma=0.1) 
-        if args.lr_sched == 'MultiStepLR': scheduler =torch.optim.lr_scheduler.MultiStepLR(optimizer, milestones=[6,8,9], gamma=0.1) 
-        if args.lr_sched == 'ExponentialLR': scheduler =torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=0.1) 
-        if args.lr_sched == 'CyclicLR': scheduler =torch.optim.lr_scheduler.CyclicLR(optimizer, base_lr=0.001, max_lr=0.1,step_size_up=5,mode="triangular") 
-        if args.lr_sched == 'CyclicLR2': scheduler =torch.optim.lr_scheduler.CyclicLR(optimizer, base_lr=0.001, max_lr=0.1,step_size_up=5,mode="triangular2") 
-        if args.lr_sched == 'CyclicLR3': scheduler =torch.optim.lr_scheduler.CyclicLR(optimizer, base_lr=0.001, max_lr=0.1,step_size_up=5,mode="exp_range",gamma=0.85) 
-        if args.lr_sched == 'OneCycleLR': scheduler =torch.optim.lr_scheduler.OneCycleLR(optimizer, max_lr=0.1, steps_per_epoch=10, epochs=10) 
-        if args.lr_sched == 'OneCycleLR2': scheduler =torch.optim.lr_scheduler.OneCycleLR(optimizer, max_lr=0.1, steps_per_epoch=10, epochs=10,anneal_strategy='linear') 
-        if args.lr_sched == 'CosineAnnealingWarmRestarts': scheduler = torch.optim.lr_scheduler.CosineAnnealingWarmRestarts(optimizer, T_0=10, T_mult=1, eta_min=0.001, last_epoch=-1) 
+    if args.optim == 'sgd': optimizer = optim.SGD(net.parameters(), lr=args.lr, momentum=args.momentum, weight_decay=args.weight_decay) 
+    if args.optim == 'adam': optimizer = optim.Adam(net.parameters(), lr=args.lr, weight_decay=args.weight_decay)
 
-
-    if args.optim == 'adam':         
-        optimizer = optim.Adam(net.parameters(), lr=args.lr, weight_decay=args.weight_decay)
+    if args.lr_sched == 'CosineAnnealingLR': scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=200) 
+    if args.lr_sched == 'LambdaLR': scheduler =torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda epoch: 0.65 ** epoch)
+    if args.lr_sched == 'MultiplicativeLR': scheduler =torch.optim.lr_scheduler.MultiplicativeLR(optimizer, lr_lambda=lambda epoch: 0.65 ** epoch)
+    if args.lr_sched == 'StepLR': scheduler =torch.optim.lr_scheduler.StepLR(optimizer, step_size=2, gamma=0.1) 
+    if args.lr_sched == 'MultiStepLR': scheduler =torch.optim.lr_scheduler.MultiStepLR(optimizer, milestones=[6,8,9], gamma=0.1) 
+    if args.lr_sched == 'ExponentialLR': scheduler =torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=0.1) 
+    if args.lr_sched == 'CyclicLR': scheduler =torch.optim.lr_scheduler.CyclicLR(optimizer, base_lr=0.001, max_lr=0.1,step_size_up=5,mode="triangular") 
+    if args.lr_sched == 'CyclicLR2': scheduler =torch.optim.lr_scheduler.CyclicLR(optimizer, base_lr=0.001, max_lr=0.1,step_size_up=5,mode="triangular2") 
+    if args.lr_sched == 'CyclicLR3': scheduler =torch.optim.lr_scheduler.CyclicLR(optimizer, base_lr=0.001, max_lr=0.1,step_size_up=5,mode="exp_range",gamma=0.85) 
+    if args.lr_sched == 'OneCycleLR': scheduler =torch.optim.lr_scheduler.OneCycleLR(optimizer, max_lr=0.1, steps_per_epoch=10, epochs=10) 
+    if args.lr_sched == 'OneCycleLR2': scheduler =torch.optim.lr_scheduler.OneCycleLR(optimizer, max_lr=0.1, steps_per_epoch=10, epochs=10,anneal_strategy='linear') 
+    if args.lr_sched == 'CosineAnnealingWarmRestarts': scheduler = torch.optim.lr_scheduler.CosineAnnealingWarmRestarts(optimizer, T_0=10, T_mult=1, eta_min=0.001, last_epoch=-1) 
 
     writer = SummaryWriter('summaries/'+args.exp) 
 
     for epoch in range(start_epoch, start_epoch+200):
         train(epoch, args) 
         test(epoch, args) 
-        if args.optim == 'sgd': scheduler.step()
+        scheduler.step()
     writer.close() 
+
+
+
