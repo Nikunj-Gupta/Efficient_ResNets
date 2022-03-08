@@ -91,7 +91,7 @@ if __name__ == '__main__':
     parser.add_argument('--lr_sched', default='CosineAnnealingLR', type=str, help='lr schedulers for sgd')
     parser.add_argument('--momentum', default=0.9, type=float, help='momentum for sgd')
 
-    parser.add_argument('--lr', default=0.1, type=float, help='learning rate')
+    parser.add_argument('--lr', default=0.9, type=float, help='learning rate')
     parser.add_argument('--weight_decay', default=5e-4, type=float, help='weight decay for optimizer')
 
     parser.add_argument('--batch_size', default=1024, type=int, help='bathc size for training and testing')
