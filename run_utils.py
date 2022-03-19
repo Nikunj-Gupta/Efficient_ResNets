@@ -1,4 +1,4 @@
-import os, numpy as np 
+import os, numpy as np, yaml 
 from pathlib import Path 
 from itertools import count
 
@@ -13,8 +13,55 @@ fixed_text = "#!/bin/bash\n"\
              "#SBATCH --gres=gpu:1\n"
 
 
-# batch size + lr 
 
+
+"""
+resnets 
+"""
+
+with open("resnet_configs/nikResNets.yaml", "r") as stream:
+    try: config = yaml.safe_load(stream) 
+    except yaml.YAMLError as exc: print(exc) 
+
+for key in config: 
+    exp = key 
+    command = fixed_text + "#SBATCH --job-name="+key+"\n#SBATCH --output="+key+".out\n"
+    command += "\nmodule load python/intel/3.8.6\n"\
+                "module load openmpi/intel/4.0.5\n"\
+                "\nsource ../venvs/dl/bin/activate\n"\
+                "time python3 main.py " 
+    
+    command = ' '.join([
+        command, 
+        "--exp", exp, 
+        "--resnet_architecture", key, 
+        '--data_augmentation', '--data_normalize', 
+    ])
+
+    # print(command) 
+    log_dir = Path(dumpdir)
+    for i in count(1):
+        temp = log_dir/('run{}.sh'.format(i)) 
+        if temp.exists():
+            pass
+        else:
+            with open(temp, "w") as f:
+                f.write(command) 
+            log_dir = temp
+            break 
+
+
+
+
+
+
+
+
+"""
+batch size + lr 
+"""
+
+""" 
 for batch_size in range(128, 1024+256, 256): 
     for lr in np.arange(0.1,0.5,0.1): 
         exp = os.path.join('batch_size_lr', '_'.join(['batch_size'+str(batch_size), 'lr'+str(lr)])) 
@@ -43,12 +90,14 @@ for batch_size in range(128, 1024+256, 256):
                     f.write(command) 
                 log_dir = temp
                 break 
+"""
 
 
 
+"""
+Optimizers 
+"""
 
-
-# Optimizers 
 """
 for opt in ['sgd','adam']: 
     for lr_sched in ['CosineAnnealingLR','LambdaLR', 'MultiplicativeLR',  
