@@ -1,0 +1,39 @@
+baseline_ResNet:
+  avg_pool_kernel_size: 4
+  conv_kernel_sizes: [3, 3, 3, 3] 
+  num_blocks: [2, 1, 1, 1] 
+  num_channels: 64
+  shortcut_kernel_sizes: [1, 1, 1, 1] 
+  drop: 0.25 # proportion for dropout 
+  max_epochs: 200 
+  optim: sgd
+  lr_sched: CosineAnnealingLR
+  momentum: 0.9
+  lr: 0.1 
+  weight_decay: 0.0005 
+  batch_size: 128
+  num_workers: 16
+  resume_ckpt: 0 # 0 if not resuming, else path to checkpoint 
+  data_augmentation: 1 # True=1, False=0 
+  data_normalize: 1 # True=1, False=0 
+  grad_clip: 0.1 
+
+dropout_test:
+  avg_pool_kernel_size: 4
+  conv_kernel_sizes: [3, 3, 3, 3] 
+  num_blocks: [2, 1, 1, 1] 
+  num_channels: 64
+  shortcut_kernel_sizes: [1, 1, 1, 1] 
+  drop: 0.25 # proportion for dropout 
+  max_epochs: 20 
+  optim: "sgd" 
+  lr_sched: "CosineAnnealingLR"
+  momentum: 0.9
+  lr: 0.1 
+  weight_decay: 0.0005 
+  batch_size: 5
+  num_workers: 1
+  resume_ckpt: 0 # 0 if not resuming, else path to checkpoint  
+  data_augmentation: 1 # True=1, False=0 
+  data_normalize: 1 # True=1, False=0 
+  grad_clip: 0.1 

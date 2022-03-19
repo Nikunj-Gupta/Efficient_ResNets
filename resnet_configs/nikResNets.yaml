@@ -1,0 +1,864 @@
+nikResNet_1:
+  avg_pool_kernel_size: 1
+  conv_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  - 1
+  num_channels: 32
+  shortcut_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+nikResNet_10:
+  avg_pool_kernel_size: 3
+  conv_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  - 1
+  num_channels: 32
+  shortcut_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+nikResNet_11:
+  avg_pool_kernel_size: 3
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  - 1
+  num_channels: 32
+  shortcut_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+nikResNet_12:
+  avg_pool_kernel_size: 3
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  - 1
+  num_channels: 32
+  shortcut_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+nikResNet_13:
+  avg_pool_kernel_size: 1
+  conv_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  shortcut_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+nikResNet_14:
+  avg_pool_kernel_size: 1
+  conv_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  shortcut_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+nikResNet_15:
+  avg_pool_kernel_size: 1
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  shortcut_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+nikResNet_16:
+  avg_pool_kernel_size: 1
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  shortcut_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+nikResNet_17:
+  avg_pool_kernel_size: 2
+  conv_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  shortcut_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+nikResNet_18:
+  avg_pool_kernel_size: 2
+  conv_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  shortcut_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+nikResNet_19:
+  avg_pool_kernel_size: 2
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  shortcut_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+nikResNet_2:
+  avg_pool_kernel_size: 1
+  conv_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  - 1
+  num_channels: 32
+  shortcut_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+nikResNet_20:
+  avg_pool_kernel_size: 2
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  shortcut_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+nikResNet_21:
+  avg_pool_kernel_size: 3
+  conv_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  shortcut_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+nikResNet_22:
+  avg_pool_kernel_size: 3
+  conv_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  shortcut_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+nikResNet_23:
+  avg_pool_kernel_size: 3
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  shortcut_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+nikResNet_24:
+  avg_pool_kernel_size: 3
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  shortcut_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+nikResNet_25:
+  avg_pool_kernel_size: 1
+  conv_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  - 1
+  num_channels: 32
+  shortcut_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+nikResNet_26:
+  avg_pool_kernel_size: 1
+  conv_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  - 1
+  num_channels: 32
+  shortcut_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+nikResNet_27:
+  avg_pool_kernel_size: 1
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  - 1
+  num_channels: 32
+  shortcut_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+nikResNet_28:
+  avg_pool_kernel_size: 1
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  - 1
+  num_channels: 32
+  shortcut_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+nikResNet_29:
+  avg_pool_kernel_size: 2
+  conv_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  - 1
+  num_channels: 32
+  shortcut_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+nikResNet_3:
+  avg_pool_kernel_size: 1
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  - 1
+  num_channels: 32
+  shortcut_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+nikResNet_30:
+  avg_pool_kernel_size: 2
+  conv_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  - 1
+  num_channels: 32
+  shortcut_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+nikResNet_31:
+  avg_pool_kernel_size: 2
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  - 1
+  num_channels: 32
+  shortcut_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+nikResNet_32:
+  avg_pool_kernel_size: 2
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  - 1
+  num_channels: 32
+  shortcut_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+nikResNet_33:
+  avg_pool_kernel_size: 3
+  conv_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  - 1
+  num_channels: 32
+  shortcut_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+nikResNet_34:
+  avg_pool_kernel_size: 3
+  conv_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  - 1
+  num_channels: 32
+  shortcut_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+nikResNet_35:
+  avg_pool_kernel_size: 3
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  - 1
+  num_channels: 32
+  shortcut_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+nikResNet_36:
+  avg_pool_kernel_size: 3
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  - 1
+  num_channels: 32
+  shortcut_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+nikResNet_37:
+  avg_pool_kernel_size: 1
+  conv_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  shortcut_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+nikResNet_38:
+  avg_pool_kernel_size: 1
+  conv_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  shortcut_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+nikResNet_39:
+  avg_pool_kernel_size: 1
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  shortcut_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+nikResNet_4:
+  avg_pool_kernel_size: 1
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  - 1
+  num_channels: 32
+  shortcut_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+nikResNet_40:
+  avg_pool_kernel_size: 1
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  shortcut_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+nikResNet_41:
+  avg_pool_kernel_size: 2
+  conv_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  shortcut_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+nikResNet_42:
+  avg_pool_kernel_size: 2
+  conv_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  shortcut_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+nikResNet_43:
+  avg_pool_kernel_size: 2
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  shortcut_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+nikResNet_44:
+  avg_pool_kernel_size: 2
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  shortcut_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+nikResNet_45:
+  avg_pool_kernel_size: 3
+  conv_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  shortcut_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+nikResNet_46:
+  avg_pool_kernel_size: 3
+  conv_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  shortcut_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+nikResNet_47:
+  avg_pool_kernel_size: 3
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  shortcut_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+nikResNet_48:
+  avg_pool_kernel_size: 3
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  shortcut_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+nikResNet_5:
+  avg_pool_kernel_size: 2
+  conv_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  - 1
+  num_channels: 32
+  shortcut_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+nikResNet_6:
+  avg_pool_kernel_size: 2
+  conv_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  - 1
+  num_channels: 32
+  shortcut_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+nikResNet_7:
+  avg_pool_kernel_size: 2
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  - 1
+  num_channels: 32
+  shortcut_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+nikResNet_8:
+  avg_pool_kernel_size: 2
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  - 1
+  num_channels: 32
+  shortcut_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+nikResNet_9:
+  avg_pool_kernel_size: 3
+  conv_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  - 1
+  num_channels: 32
+  shortcut_kernel_sizes:
+  - 2
+  - 2
+  - 2
+  - 2
