@@ -122,13 +122,13 @@ if __name__ == '__main__':
     config['total_params'] = total_params 
     print(net)
     print('Total Parameters: ', total_params) 
-    # exit() 
 
     if total_params > 5_000_000: 
         print("===============================")
         print("Total parameters exceeding 5M") 
         print("===============================")
         # exit()
+    # exit()
 
 
     net = net.to(device)
