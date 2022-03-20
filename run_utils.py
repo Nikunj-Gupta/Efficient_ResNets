@@ -13,15 +13,15 @@ fixed_text = "#!/bin/bash\n"\
              "#SBATCH --gres=gpu:1\n"
 
 
+config_file = "resnet_configs/resnet.yaml"
 
+with open(config_file, "r") as stream:
+        
+        try: config = yaml.safe_load(stream) 
+        except yaml.YAMLError as exc: print(exc) 
 
-"""
-resnets 
-"""
+print(config.keys())
 
-with open("resnet_configs/nikResNets.yaml", "r") as stream:
-    try: config = yaml.safe_load(stream) 
-    except yaml.YAMLError as exc: print(exc) 
 
 for key in config: 
     exp = key 
@@ -30,14 +30,11 @@ for key in config:
                 "module load openmpi/intel/4.0.5\n"\
                 "\nsource ../venvs/dl/bin/activate\n"\
                 "time python3 main.py " 
-    
     command = ' '.join([
         command, 
-        "--exp", exp, 
-        "--resnet_architecture", key, 
-        '--data_augmentation', '--data_normalize', 
-    ])
-
+        '--config', config_file, 
+        "--resnet_architecture", key
+    ]) 
     # print(command) 
     log_dir = Path(dumpdir)
     for i in count(1):
@@ -49,6 +46,42 @@ for key in config:
                 f.write(command) 
             log_dir = temp
             break 
+
+
+# """
+# resnets 
+# """
+
+# with open("resnet_configs/nikResNets.yaml", "r") as stream:
+#     try: config = yaml.safe_load(stream) 
+#     except yaml.YAMLError as exc: print(exc) 
+
+# for key in config: 
+#     exp = key 
+#     command = fixed_text + "#SBATCH --job-name="+key+"\n#SBATCH --output="+key+".out\n"
+#     command += "\nmodule load python/intel/3.8.6\n"\
+#                 "module load openmpi/intel/4.0.5\n"\
+#                 "\nsource ../venvs/dl/bin/activate\n"\
+#                 "time python3 main.py " 
+    
+#     command = ' '.join([
+#         command, 
+#         "--exp", exp, 
+#         "--resnet_architecture", key, 
+#         '--data_augmentation', '--data_normalize', 
+#     ])
+
+#     # print(command) 
+#     log_dir = Path(dumpdir)
+#     for i in count(1):
+#         temp = log_dir/('run{}.sh'.format(i)) 
+#         if temp.exists():
+#             pass
+#         else:
+#             with open(temp, "w") as f:
+#                 f.write(command) 
+#             log_dir = temp
+#             break 
 
 
 
