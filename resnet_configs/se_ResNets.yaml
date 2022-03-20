@@ -48,9 +48,9 @@ baseline_ResNet_se:
   momentum: 0.9
   num_blocks:
   - 2
-  - 2
-  - 2
-  - 2
+  - 1
+  - 1
+  - 1
   num_channels: 64
   num_workers: 16
   optim: sgd
