@@ -1,31 +1,38 @@
-import yaml 
+import yaml, numpy as np, copy 
 from pprint import pprint 
 
 
+default_config = {
+  "avg_pool_kernel_size": 4, 
+  "conv_kernel_sizes": [3, 3, 3, 3],
+  "num_blocks": [2, 2, 2, 2] ,
+  "num_channels": 64,
+  "shortcut_kernel_sizes": [1, 1, 1, 1] ,
+  "drop": 0, 
+  "squeeze_and_excitation": 0, 
+  "max_epochs": 200,
+  "optim": "sgd" ,
+  "lr_sched": "CosineAnnealingLR",
+  "momentum": 0.9,
+  "lr": 0.1 ,
+  "weight_decay": 0.0005 ,
+  "batch_size": 128,
+  "num_workers": 16,
+  "resume_ckpt": 0,
+  "data_augmentation": 1, 
+  "data_normalize": 1, 
+  "grad_clip": 0.1 
+} 
 config = {} 
-count = 1 
-for num_blocks in [[1,1,1,1], [2,1,1,1]]: 
-    for num_channels in range(32, 32*3, 32):         
-        for avg_pool_kernel_size in range(1, 4): 
-            for conv_kernel_size in range(2, 4): 
-                for shortcut_kernel_sizes in range(2, 4): 
+for name in ["ResNet18", "baseline_ResNet"]: 
+    for dropout in np.arange(0.1, 0.8, 0.05): 
+        dropout = round(float(dropout), 2)  
+        exp = name + "_dropout_" + str(dropout) 
+        config[exp] = copy.deepcopy(default_config)
+        config[exp]['drop'] = dropout 
 
-                    name = "nikResNet_"+str(count) 
-                    config[name] = {} 
-
-                    config[name]['num_blocks'] = list(num_blocks)                                                           # N: number of Residual Layers | Bi:Residual blocks in Residual Layer i 
-                    config[name]['conv_kernel_sizes'] = [conv_kernel_size]*len(config[name]['num_blocks'])                  # Fi: Conv. kernel size in Residual Layer i 
-                    config[name]['shortcut_kernel_sizes'] = [shortcut_kernel_sizes]*len(config[name]['num_blocks'])         # Ki: Skip connection kernel size in Residual Layer i 
-                    config[name]['num_channels'] = num_channels                                                             # Ci: # channels in Residual Layer i 
-                    config[name]['avg_pool_kernel_size'] =  avg_pool_kernel_size                                            # P: Average pool kernel size 
-
-                    count += 1 
-
-print("Number of experiments: ", len(config.keys()))
-
-with open('resnet_configs/nikResNets.yaml', 'w') as file:
-    yaml.dump(config, file)
-
+with open('resnet_configs/dropoutResNets.yaml', 'w') as file:
+    yaml.dump(config, file) 
 
 
 

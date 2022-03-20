@@ -13,7 +13,7 @@ fixed_text = "#!/bin/bash\n"\
              "#SBATCH --gres=gpu:1\n"
 
 
-config_file = "resnet_configs/resnet.yaml"
+config_file = "resnet_configs/dropoutResNets.yaml"
 
 with open(config_file, "r") as stream:
         
