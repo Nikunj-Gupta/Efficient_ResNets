@@ -32,7 +32,6 @@ def train(epoch, config):
 
         train_acc.append(100.*correct/total) 
         # print('Batch_idx: %d | Train Loss: %.3f | Train Acc: %.3f%% (%d/%d)'% (batch_idx, train_loss/(batch_idx+1), 100.*correct/total, correct, total)) 
-        break 
     writer.add_scalar('Loss/train_loss', np.mean(train_losses), epoch) 
     writer.add_scalar('Accuracy/train_accuracy', np.mean(train_acc), epoch) 
     
@@ -58,14 +57,12 @@ def test(epoch, config, savename):
             correct += predicted.eq(targets).sum().item() 
             test_acc.append(100.*correct/total) 
             # print('Batch_idx: %d | Test Loss: %.3f | Test Acc: %.3f%% (%d/%d)'% ( batch_idx, test_loss/(batch_idx+1), 100.*correct/total, correct, total)) 
-            break 
         writer.add_scalar('Loss/test_loss', np.mean(test_losses), epoch) 
         writer.add_scalar('Accuracy/test_accuracy', np.mean(test_acc), epoch) 
 
     # Save checkpoint.
     acc = 100.*correct/total
-    # if acc > best_acc:
-    if acc > -10:
+    if acc > best_acc: 
         print('Saving..')
         state = {
             'net': net.state_dict(),
@@ -120,7 +117,19 @@ if __name__ == '__main__':
     classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
     
     # net = get_ResNet_default() 
+
     net, total_params = get_ResNet(config=config) 
+    config['total_params'] = total_params 
+    print(net)
+    print('Total Parameters: ', total_params) 
+    # exit() 
+
+    if total_params > 5_000_000: 
+        print("===============================")
+        print("Total parameters exceeding 5M") 
+        print("===============================")
+        # exit()
+
 
     net = net.to(device)
     if device == 'cuda':
