@@ -4,11 +4,11 @@
 #SBATCH --time=1:00:00
 #SBATCH --mem=40GB
 #SBATCH --gres=gpu:1
-#SBATCH --job-name=numchannel_64
-#SBATCH --output=numchannel_64.out
+#SBATCH --job-name=numchannel_32_dropout
+#SBATCH --output=numchannel_32_dropout.out
 
 module load python/intel/3.8.6
 module load openmpi/intel/4.0.5
 
 source ../venvs/dl/bin/activate
-time python3 main.py  --config resnet_configs/resnet.yaml --resnet_architecture numchannel_64
+time python3 main.py  --config resnet_configs/resnet.yaml --resnet_architecture numchannel_32_dropout
