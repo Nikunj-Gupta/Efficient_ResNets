@@ -25,13 +25,11 @@ default_config = {
 } 
 config = {} 
 for name in ["ResNet18", "baseline_ResNet"]: 
-    for dropout in np.arange(0.1, 0.8, 0.05): 
-        dropout = round(float(dropout), 2)  
-        exp = name + "_dropout_" + str(dropout) 
-        config[exp] = copy.deepcopy(default_config)
-        config[exp]['drop'] = dropout 
+    exp = name + "_se" 
+    config[exp] = copy.deepcopy(default_config)
+    config[exp]['squeeze_and_excitation'] = 1 
 
-with open('resnet_configs/dropoutResNets.yaml', 'w') as file:
+with open('resnet_configs/se_ResNets.yaml', 'w') as file:
     yaml.dump(config, file) 
 
 

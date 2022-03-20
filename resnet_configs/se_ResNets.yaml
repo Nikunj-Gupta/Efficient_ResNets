@@ -1,0 +1,64 @@
+ResNet18_se:
+  avg_pool_kernel_size: 4
+  batch_size: 128
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  data_augmentation: 1
+  data_normalize: 1
+  drop: 0
+  grad_clip: 0.1
+  lr: 0.1
+  lr_sched: CosineAnnealingLR
+  max_epochs: 200
+  momentum: 0.9
+  num_blocks:
+  - 2
+  - 2
+  - 2
+  - 2
+  num_channels: 64
+  num_workers: 16
+  optim: sgd
+  resume_ckpt: 0
+  shortcut_kernel_sizes:
+  - 1
+  - 1
+  - 1
+  - 1
+  squeeze_and_excitation: 1
+  weight_decay: 0.0005
+baseline_ResNet_se:
+  avg_pool_kernel_size: 4
+  batch_size: 128
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  data_augmentation: 1
+  data_normalize: 1
+  drop: 0
+  grad_clip: 0.1
+  lr: 0.1
+  lr_sched: CosineAnnealingLR
+  max_epochs: 200
+  momentum: 0.9
+  num_blocks:
+  - 2
+  - 2
+  - 2
+  - 2
+  num_channels: 64
+  num_workers: 16
+  optim: sgd
+  resume_ckpt: 0
+  shortcut_kernel_sizes:
+  - 1
+  - 1
+  - 1
+  - 1
+  squeeze_and_excitation: 1
+  weight_decay: 0.0005
