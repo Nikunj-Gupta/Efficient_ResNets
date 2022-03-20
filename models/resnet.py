@@ -111,7 +111,7 @@ class ResNet(nn.Module):
                                                     shortcut_kernel_size=shortcut_kernel_size)) 
 
         self.residual_layers = nn.ModuleList(self.residual_layers)
-        self.linear = nn.Linear(512*block.expansion, num_classes) 
+        self.linear = nn.Linear(self.num_channels*(2**n)*block.expansion, num_classes) 
         """
         Dropout layer 
         """
