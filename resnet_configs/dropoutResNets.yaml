@@ -464,9 +464,9 @@ baseline_ResNet_dropout_0.1:
   momentum: 0.9
   num_blocks:
   - 2
-  - 2
-  - 2
-  - 2
+  - 1
+  - 1
+  - 1
   num_channels: 64
   num_workers: 16
   optim: sgd
@@ -496,9 +496,9 @@ baseline_ResNet_dropout_0.15:
   momentum: 0.9
   num_blocks:
   - 2
-  - 2
-  - 2
-  - 2
+  - 1
+  - 1
+  - 1
   num_channels: 64
   num_workers: 16
   optim: sgd
@@ -528,9 +528,9 @@ baseline_ResNet_dropout_0.2:
   momentum: 0.9
   num_blocks:
   - 2
-  - 2
-  - 2
-  - 2
+  - 1
+  - 1
+  - 1
   num_channels: 64
   num_workers: 16
   optim: sgd
@@ -560,9 +560,9 @@ baseline_ResNet_dropout_0.25:
   momentum: 0.9
   num_blocks:
   - 2
-  - 2
-  - 2
-  - 2
+  - 1
+  - 1
+  - 1
   num_channels: 64
   num_workers: 16
   optim: sgd
@@ -592,9 +592,9 @@ baseline_ResNet_dropout_0.3:
   momentum: 0.9
   num_blocks:
   - 2
-  - 2
-  - 2
-  - 2
+  - 1
+  - 1
+  - 1
   num_channels: 64
   num_workers: 16
   optim: sgd
@@ -624,9 +624,9 @@ baseline_ResNet_dropout_0.35:
   momentum: 0.9
   num_blocks:
   - 2
-  - 2
-  - 2
-  - 2
+  - 1
+  - 1
+  - 1
   num_channels: 64
   num_workers: 16
   optim: sgd
@@ -656,9 +656,9 @@ baseline_ResNet_dropout_0.4:
   momentum: 0.9
   num_blocks:
   - 2
-  - 2
-  - 2
-  - 2
+  - 1
+  - 1
+  - 1
   num_channels: 64
   num_workers: 16
   optim: sgd
@@ -688,9 +688,9 @@ baseline_ResNet_dropout_0.45:
   momentum: 0.9
   num_blocks:
   - 2
-  - 2
-  - 2
-  - 2
+  - 1
+  - 1
+  - 1
   num_channels: 64
   num_workers: 16
   optim: sgd
@@ -720,9 +720,9 @@ baseline_ResNet_dropout_0.5:
   momentum: 0.9
   num_blocks:
   - 2
-  - 2
-  - 2
-  - 2
+  - 1
+  - 1
+  - 1
   num_channels: 64
   num_workers: 16
   optim: sgd
@@ -752,9 +752,9 @@ baseline_ResNet_dropout_0.55:
   momentum: 0.9
   num_blocks:
   - 2
-  - 2
-  - 2
-  - 2
+  - 1
+  - 1
+  - 1
   num_channels: 64
   num_workers: 16
   optim: sgd
@@ -784,9 +784,9 @@ baseline_ResNet_dropout_0.6:
   momentum: 0.9
   num_blocks:
   - 2
-  - 2
-  - 2
-  - 2
+  - 1
+  - 1
+  - 1
   num_channels: 64
   num_workers: 16
   optim: sgd
@@ -816,9 +816,9 @@ baseline_ResNet_dropout_0.65:
   momentum: 0.9
   num_blocks:
   - 2
-  - 2
-  - 2
-  - 2
+  - 1
+  - 1
+  - 1
   num_channels: 64
   num_workers: 16
   optim: sgd
@@ -848,9 +848,9 @@ baseline_ResNet_dropout_0.7:
   momentum: 0.9
   num_blocks:
   - 2
-  - 2
-  - 2
-  - 2
+  - 1
+  - 1
+  - 1
   num_channels: 64
   num_workers: 16
   optim: sgd
@@ -880,9 +880,9 @@ baseline_ResNet_dropout_0.75:
   momentum: 0.9
   num_blocks:
   - 2
-  - 2
-  - 2
-  - 2
+  - 1
+  - 1
+  - 1
   num_channels: 64
   num_workers: 16
   optim: sgd

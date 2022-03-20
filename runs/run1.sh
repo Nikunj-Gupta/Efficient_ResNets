@@ -4,11 +4,11 @@
 #SBATCH --time=1:00:00
 #SBATCH --mem=40GB
 #SBATCH --gres=gpu:1
-#SBATCH --job-name=ResNet18_se
-#SBATCH --output=ResNet18_se.out
+#SBATCH --job-name=ResNet18_dropout_0.1
+#SBATCH --output=ResNet18_dropout_0.1.out
 
 module load python/intel/3.8.6
 module load openmpi/intel/4.0.5
 
 source ../venvs/dl/bin/activate
-time python3 main.py  --config resnet_configs/se_ResNets.yaml --resnet_architecture ResNet18_se
+time python3 main.py  --config resnet_configs/dropoutResNets.yaml --resnet_architecture ResNet18_dropout_0.1
