@@ -8,19 +8,19 @@ if not os.path.isdir(dumpdir):
 fixed_text = "#!/bin/bash\n"\
              "#SBATCH --nodes=1\n"\
              "#SBATCH --cpus-per-task=16 \n"\
-             "#SBATCH --time=1:00:00\n"\
+             "#SBATCH --time=4:00:00\n"\
              "#SBATCH --mem=40GB\n"\
              "#SBATCH --gres=gpu:1\n"
 
 
-config_file = "resnet_configs/se_ResNets.yaml"
+config_file = "resnet_configs/sunday_ResNets.yaml"
 
 with open(config_file, "r") as stream:
         
         try: config = yaml.safe_load(stream) 
         except yaml.YAMLError as exc: print(exc) 
 
-print(config.keys())
+# print(config.keys())
 
 
 for key in config: 

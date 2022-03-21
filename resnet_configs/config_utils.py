@@ -2,7 +2,7 @@ import yaml, numpy as np, copy
 from pprint import pprint 
 
 
-default_config = {
+ResNet18_default_config = {
   "avg_pool_kernel_size": 4, 
   "conv_kernel_sizes": [3, 3, 3, 3],
   "num_blocks": [2, 2, 2, 2] ,
@@ -26,11 +26,32 @@ default_config = {
 config = {} 
 
 for name in ["ResNet18", "baseline_ResNet"]: 
+  for dadn in [0, 1]: 
+    for drop in [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6]: 
+      for grad_clip in [0, 0.1]: 
+          exp = name 
+          if dadn: exp += "_dadn" + str(dadn)
+          if drop: exp += "_drop" + str(drop) 
+          if grad_clip: exp += "_gradclip" + str(grad_clip) 
+          config[exp] = copy.deepcopy(ResNet18_default_config)
+          if name == "baseline_ResNet": 
+              config[exp]['num_blocks'] = [2,1,1,1] 
+          config[exp]['data_augmentation'] = dadn 
+          config[exp]['data_normalize'] = dadn  
+          config[exp]['drop'] = drop 
+          config[exp]['grad_clip'] = grad_clip 
+# print(len(config.keys()))
+# pprint(config.keys())
+# exit() 
+
+"""
+for name in ["ResNet18", "baseline_ResNet"]: 
   exp = name + "_se" 
   config[exp] = copy.deepcopy(default_config)
   if name == "baseline_ResNet": 
       config[exp]['num_blocks'] = [2,1,1,1] 
   config[exp]['squeeze_and_excitation'] = 1  
+"""
 
 # # Dropout 
 # for name in ["ResNet18", "baseline_ResNet"]: 
@@ -42,7 +63,7 @@ for name in ["ResNet18", "baseline_ResNet"]:
 #         config[exp]['num_blocks'] = [2,1,1,1] 
 #     config[exp]['drop'] = dropout 
 
-with open('resnet_configs/se_ResNets.yaml', 'w') as file:
+with open('resnet_configs/sunday_ResNets.yaml', 'w') as file:
     yaml.dump(config, file) 
 
 
