@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=16 
-#SBATCH --time=4:00:00
+#SBATCH --time=1:00:00
 #SBATCH --mem=40GB
 #SBATCH --gres=gpu:1
 #SBATCH --job-name=ResNet18_drop0.5
