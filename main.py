@@ -1,11 +1,11 @@
 '''Train CIFAR10 with PyTorch.'''
 import torch, torch.nn as nn, torch.optim as optim, torch.nn.functional as F, torch.backends.cudnn as cudnn  
 import torchvision, torchvision.transforms as transforms
-import os, argparse, yaml 
+import os, argparse, yaml, math 
 from torch.utils.tensorboard import SummaryWriter
 from models import *
 from torchsummary import summary
-
+from lookahead import Lookahead 
 
 
 # Training
@@ -138,20 +138,38 @@ if __name__ == '__main__':
     if device == 'cuda':
         net = torch.nn.DataParallel(net)
         cudnn.benchmark = True
-    if config["resume_ckpt"]: 
-       
+
+    """
+    Weight initialization for ResNet 
+    """
+    if ("weights_init_type" in config): 
+        def init_weights(m, type='default'): 
+            if (isinstance(m, nn.Linear) or isinstance(m, nn.Conv2d)) and hasattr(m, 'weight'): 
+                if type == 'xavier_uniform_': torch.nn.init.xavier_uniform_(m.weight.data)
+                elif type == 'normal_': torch.nn.init.normal_(m.weight.data, mean=0, std=0.02)
+                elif type == 'xavier_normal': torch.nn.init.xavier_normal(m.weight.data, gain=math.sqrt(2))
+                elif type == 'kaiming_normal': torch.nn.init.kaiming_normal(m.weight.data, a=0, mode='fan_in')
+                elif type == 'orthogonal': torch.nn.init.orthogonal(m.weight.data, gain=math.sqrt(2))
+                elif type == 'default': pass 
+        net.apply(lambda m: init_weights(m=m, type=config["weights_init_type"])) 
+
+    if config["resume_ckpt"]:        
         # Load checkpoint.
         print('==> Resuming from checkpoint..')
         checkpoint = torch.load(config["resume_ckpt"])
         net.load_state_dict(checkpoint['net'])
         best_acc = checkpoint['acc']
         start_epoch = checkpoint['epoch']
-
     criterion = nn.CrossEntropyLoss()
 
     if config["optim"] == 'sgd': optimizer = optim.SGD(net.parameters(), lr=config["lr"], momentum=config["momentum"], weight_decay=config["weight_decay"]) 
     if config["optim"] == 'adam': optimizer = optim.Adam(net.parameters(), lr=config["lr"], weight_decay=config["weight_decay"])
 
+    """
+    Lookahead Optimizer: k steps forward, 1 step back
+    """
+    if ("lookahead" in config) and config["lookahead"]: optimizer = Lookahead(optimizer, k=5, alpha=0.5) # Initialize Lookahead 
+    
     if config["lr_sched"] == 'CosineAnnealingLR': scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=200) # Good 
     if config["lr_sched"] == 'LambdaLR': scheduler =torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda epoch: 0.65 ** epoch)
     if config["lr_sched"] == 'MultiplicativeLR': scheduler =torch.optim.lr_scheduler.MultiplicativeLR(optimizer, lr_lambda=lambda epoch: 0.65 ** epoch)
@@ -164,7 +182,7 @@ if __name__ == '__main__':
     if config["lr_sched"] == 'OneCycleLR': scheduler =torch.optim.lr_scheduler.OneCycleLR(optimizer, max_lr=0.1, steps_per_epoch=10, epochs=10) 
     if config["lr_sched"] == 'OneCycleLR2': scheduler =torch.optim.lr_scheduler.OneCycleLR(optimizer, max_lr=0.1, steps_per_epoch=10, epochs=10,anneal_strategy='linear') 
     if config["lr_sched"] == 'CosineAnnealingWarmRestarts': scheduler = torch.optim.lr_scheduler.CosineAnnealingWarmRestarts(optimizer, T_0=10, T_mult=1, eta_min=0.001, last_epoch=-1) 
-
+    
     writer = SummaryWriter('summaries/'+exp) 
 
     for epoch in range(start_epoch, config["max_epochs"]): 

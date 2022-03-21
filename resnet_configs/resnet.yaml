@@ -18,6 +18,8 @@ test:
   data_augmentation: 1 # True=1, False=0 
   data_normalize: 1 # True=1, False=0 
   grad_clip: 0.1 
+  weights_init_type: 'xavier_normal'
+  lookahead: 1 
 
 # baseline_ResNet_dropout:
 #   avg_pool_kernel_size: 4
