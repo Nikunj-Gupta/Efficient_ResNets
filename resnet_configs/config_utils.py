@@ -52,7 +52,7 @@ for name in ["vanilla_ResNet4"]:
     for num_channels in [16, 32, 64]: 
       # for conv in [3, 5, 7]: 
           exp = name 
-          exp += "_num_blocks" + str(num_blocks)
+          exp += "_num_blocks" + ['x'.join(str(x) for x in num_blocks)][0]
           exp += "_num_channels" + str(num_channels) 
           # exp += "_conv" + str(conv) 
           config[exp] = copy.deepcopy(Vanilla_default_config)
