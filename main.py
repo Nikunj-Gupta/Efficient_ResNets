@@ -4,6 +4,8 @@ import torchvision, torchvision.transforms as transforms
 import os, argparse, yaml 
 from torch.utils.tensorboard import SummaryWriter
 from models import *
+from torchsummary import summary
+
 
 
 # Training
@@ -120,6 +122,7 @@ if __name__ == '__main__':
 
     net, total_params = get_ResNet(config=config) 
     config['total_params'] = total_params 
+    # summary(net, input_size=(3, 32,32)) 
     print(net)
     print('Total Parameters: ', total_params) 
 
