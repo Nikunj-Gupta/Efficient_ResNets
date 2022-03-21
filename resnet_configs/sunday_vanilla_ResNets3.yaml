@@ -1,0 +1,522 @@
+vanilla_ResNet3_num_blocks1x1x1_num_channels16_conv3:
+  avg_pool_kernel_size: 4
+  batch_size: 128
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  data_augmentation: 0
+  data_normalize: 0
+  drop: 0
+  grad_clip: 0
+  lr: 0.1
+  lr_sched: CosineAnnealingLR
+  max_epochs: 200
+  momentum: 0.9
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  num_channels: 16
+  num_workers: 16
+  optim: sgd
+  resume_ckpt: 0
+  shortcut_kernel_sizes:
+  - 1
+  - 1
+  - 1
+  squeeze_and_excitation: 0
+  weight_decay: 0.0005
+vanilla_ResNet3_num_blocks1x1x1_num_channels16_conv5:
+  avg_pool_kernel_size: 4
+  batch_size: 128
+  conv_kernel_sizes:
+  - 5
+  - 5
+  - 5
+  data_augmentation: 0
+  data_normalize: 0
+  drop: 0
+  grad_clip: 0
+  lr: 0.1
+  lr_sched: CosineAnnealingLR
+  max_epochs: 200
+  momentum: 0.9
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  num_channels: 16
+  num_workers: 16
+  optim: sgd
+  resume_ckpt: 0
+  shortcut_kernel_sizes:
+  - 1
+  - 1
+  - 1
+  squeeze_and_excitation: 0
+  weight_decay: 0.0005
+vanilla_ResNet3_num_blocks1x1x1_num_channels32_conv3:
+  avg_pool_kernel_size: 4
+  batch_size: 128
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  data_augmentation: 0
+  data_normalize: 0
+  drop: 0
+  grad_clip: 0
+  lr: 0.1
+  lr_sched: CosineAnnealingLR
+  max_epochs: 200
+  momentum: 0.9
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  num_channels: 32
+  num_workers: 16
+  optim: sgd
+  resume_ckpt: 0
+  shortcut_kernel_sizes:
+  - 1
+  - 1
+  - 1
+  squeeze_and_excitation: 0
+  weight_decay: 0.0005
+vanilla_ResNet3_num_blocks1x1x1_num_channels32_conv5:
+  avg_pool_kernel_size: 4
+  batch_size: 128
+  conv_kernel_sizes:
+  - 5
+  - 5
+  - 5
+  data_augmentation: 0
+  data_normalize: 0
+  drop: 0
+  grad_clip: 0
+  lr: 0.1
+  lr_sched: CosineAnnealingLR
+  max_epochs: 200
+  momentum: 0.9
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  num_channels: 32
+  num_workers: 16
+  optim: sgd
+  resume_ckpt: 0
+  shortcut_kernel_sizes:
+  - 1
+  - 1
+  - 1
+  squeeze_and_excitation: 0
+  weight_decay: 0.0005
+vanilla_ResNet3_num_blocks1x1x1_num_channels64_conv3:
+  avg_pool_kernel_size: 4
+  batch_size: 128
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  data_augmentation: 0
+  data_normalize: 0
+  drop: 0
+  grad_clip: 0
+  lr: 0.1
+  lr_sched: CosineAnnealingLR
+  max_epochs: 200
+  momentum: 0.9
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  num_workers: 16
+  optim: sgd
+  resume_ckpt: 0
+  shortcut_kernel_sizes:
+  - 1
+  - 1
+  - 1
+  squeeze_and_excitation: 0
+  weight_decay: 0.0005
+vanilla_ResNet3_num_blocks1x1x1_num_channels64_conv5:
+  avg_pool_kernel_size: 4
+  batch_size: 128
+  conv_kernel_sizes:
+  - 5
+  - 5
+  - 5
+  data_augmentation: 0
+  data_normalize: 0
+  drop: 0
+  grad_clip: 0
+  lr: 0.1
+  lr_sched: CosineAnnealingLR
+  max_epochs: 200
+  momentum: 0.9
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  num_workers: 16
+  optim: sgd
+  resume_ckpt: 0
+  shortcut_kernel_sizes:
+  - 1
+  - 1
+  - 1
+  squeeze_and_excitation: 0
+  weight_decay: 0.0005
+vanilla_ResNet3_num_blocks2x1x1_num_channels16_conv3:
+  avg_pool_kernel_size: 4
+  batch_size: 128
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  data_augmentation: 0
+  data_normalize: 0
+  drop: 0
+  grad_clip: 0
+  lr: 0.1
+  lr_sched: CosineAnnealingLR
+  max_epochs: 200
+  momentum: 0.9
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  num_channels: 16
+  num_workers: 16
+  optim: sgd
+  resume_ckpt: 0
+  shortcut_kernel_sizes:
+  - 1
+  - 1
+  - 1
+  squeeze_and_excitation: 0
+  weight_decay: 0.0005
+vanilla_ResNet3_num_blocks2x1x1_num_channels16_conv5:
+  avg_pool_kernel_size: 4
+  batch_size: 128
+  conv_kernel_sizes:
+  - 5
+  - 5
+  - 5
+  data_augmentation: 0
+  data_normalize: 0
+  drop: 0
+  grad_clip: 0
+  lr: 0.1
+  lr_sched: CosineAnnealingLR
+  max_epochs: 200
+  momentum: 0.9
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  num_channels: 16
+  num_workers: 16
+  optim: sgd
+  resume_ckpt: 0
+  shortcut_kernel_sizes:
+  - 1
+  - 1
+  - 1
+  squeeze_and_excitation: 0
+  weight_decay: 0.0005
+vanilla_ResNet3_num_blocks2x1x1_num_channels32_conv3:
+  avg_pool_kernel_size: 4
+  batch_size: 128
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  data_augmentation: 0
+  data_normalize: 0
+  drop: 0
+  grad_clip: 0
+  lr: 0.1
+  lr_sched: CosineAnnealingLR
+  max_epochs: 200
+  momentum: 0.9
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  num_channels: 32
+  num_workers: 16
+  optim: sgd
+  resume_ckpt: 0
+  shortcut_kernel_sizes:
+  - 1
+  - 1
+  - 1
+  squeeze_and_excitation: 0
+  weight_decay: 0.0005
+vanilla_ResNet3_num_blocks2x1x1_num_channels32_conv5:
+  avg_pool_kernel_size: 4
+  batch_size: 128
+  conv_kernel_sizes:
+  - 5
+  - 5
+  - 5
+  data_augmentation: 0
+  data_normalize: 0
+  drop: 0
+  grad_clip: 0
+  lr: 0.1
+  lr_sched: CosineAnnealingLR
+  max_epochs: 200
+  momentum: 0.9
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  num_channels: 32
+  num_workers: 16
+  optim: sgd
+  resume_ckpt: 0
+  shortcut_kernel_sizes:
+  - 1
+  - 1
+  - 1
+  squeeze_and_excitation: 0
+  weight_decay: 0.0005
+vanilla_ResNet3_num_blocks2x1x1_num_channels64_conv3:
+  avg_pool_kernel_size: 4
+  batch_size: 128
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  data_augmentation: 0
+  data_normalize: 0
+  drop: 0
+  grad_clip: 0
+  lr: 0.1
+  lr_sched: CosineAnnealingLR
+  max_epochs: 200
+  momentum: 0.9
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  num_channels: 64
+  num_workers: 16
+  optim: sgd
+  resume_ckpt: 0
+  shortcut_kernel_sizes:
+  - 1
+  - 1
+  - 1
+  squeeze_and_excitation: 0
+  weight_decay: 0.0005
+vanilla_ResNet3_num_blocks2x1x1_num_channels64_conv5:
+  avg_pool_kernel_size: 4
+  batch_size: 128
+  conv_kernel_sizes:
+  - 5
+  - 5
+  - 5
+  data_augmentation: 0
+  data_normalize: 0
+  drop: 0
+  grad_clip: 0
+  lr: 0.1
+  lr_sched: CosineAnnealingLR
+  max_epochs: 200
+  momentum: 0.9
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  num_channels: 64
+  num_workers: 16
+  optim: sgd
+  resume_ckpt: 0
+  shortcut_kernel_sizes:
+  - 1
+  - 1
+  - 1
+  squeeze_and_excitation: 0
+  weight_decay: 0.0005
+vanilla_ResNet3_num_blocks2x2x1_num_channels16_conv3:
+  avg_pool_kernel_size: 4
+  batch_size: 128
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  data_augmentation: 0
+  data_normalize: 0
+  drop: 0
+  grad_clip: 0
+  lr: 0.1
+  lr_sched: CosineAnnealingLR
+  max_epochs: 200
+  momentum: 0.9
+  num_blocks:
+  - 2
+  - 2
+  - 1
+  num_channels: 16
+  num_workers: 16
+  optim: sgd
+  resume_ckpt: 0
+  shortcut_kernel_sizes:
+  - 1
+  - 1
+  - 1
+  squeeze_and_excitation: 0
+  weight_decay: 0.0005
+vanilla_ResNet3_num_blocks2x2x1_num_channels16_conv5:
+  avg_pool_kernel_size: 4
+  batch_size: 128
+  conv_kernel_sizes:
+  - 5
+  - 5
+  - 5
+  data_augmentation: 0
+  data_normalize: 0
+  drop: 0
+  grad_clip: 0
+  lr: 0.1
+  lr_sched: CosineAnnealingLR
+  max_epochs: 200
+  momentum: 0.9
+  num_blocks:
+  - 2
+  - 2
+  - 1
+  num_channels: 16
+  num_workers: 16
+  optim: sgd
+  resume_ckpt: 0
+  shortcut_kernel_sizes:
+  - 1
+  - 1
+  - 1
+  squeeze_and_excitation: 0
+  weight_decay: 0.0005
+vanilla_ResNet3_num_blocks2x2x1_num_channels32_conv3:
+  avg_pool_kernel_size: 4
+  batch_size: 128
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  data_augmentation: 0
+  data_normalize: 0
+  drop: 0
+  grad_clip: 0
+  lr: 0.1
+  lr_sched: CosineAnnealingLR
+  max_epochs: 200
+  momentum: 0.9
+  num_blocks:
+  - 2
+  - 2
+  - 1
+  num_channels: 32
+  num_workers: 16
+  optim: sgd
+  resume_ckpt: 0
+  shortcut_kernel_sizes:
+  - 1
+  - 1
+  - 1
+  squeeze_and_excitation: 0
+  weight_decay: 0.0005
+vanilla_ResNet3_num_blocks2x2x1_num_channels32_conv5:
+  avg_pool_kernel_size: 4
+  batch_size: 128
+  conv_kernel_sizes:
+  - 5
+  - 5
+  - 5
+  data_augmentation: 0
+  data_normalize: 0
+  drop: 0
+  grad_clip: 0
+  lr: 0.1
+  lr_sched: CosineAnnealingLR
+  max_epochs: 200
+  momentum: 0.9
+  num_blocks:
+  - 2
+  - 2
+  - 1
+  num_channels: 32
+  num_workers: 16
+  optim: sgd
+  resume_ckpt: 0
+  shortcut_kernel_sizes:
+  - 1
+  - 1
+  - 1
+  squeeze_and_excitation: 0
+  weight_decay: 0.0005
+vanilla_ResNet3_num_blocks2x2x1_num_channels64_conv3:
+  avg_pool_kernel_size: 4
+  batch_size: 128
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  data_augmentation: 0
+  data_normalize: 0
+  drop: 0
+  grad_clip: 0
+  lr: 0.1
+  lr_sched: CosineAnnealingLR
+  max_epochs: 200
+  momentum: 0.9
+  num_blocks:
+  - 2
+  - 2
+  - 1
+  num_channels: 64
+  num_workers: 16
+  optim: sgd
+  resume_ckpt: 0
+  shortcut_kernel_sizes:
+  - 1
+  - 1
+  - 1
+  squeeze_and_excitation: 0
+  weight_decay: 0.0005
+vanilla_ResNet3_num_blocks2x2x1_num_channels64_conv5:
+  avg_pool_kernel_size: 4
+  batch_size: 128
+  conv_kernel_sizes:
+  - 5
+  - 5
+  - 5
+  data_augmentation: 0
+  data_normalize: 0
+  drop: 0
+  grad_clip: 0
+  lr: 0.1
+  lr_sched: CosineAnnealingLR
+  max_epochs: 200
+  momentum: 0.9
+  num_blocks:
+  - 2
+  - 2
+  - 1
+  num_channels: 64
+  num_workers: 16
+  optim: sgd
+  resume_ckpt: 0
+  shortcut_kernel_sizes:
+  - 1
+  - 1
+  - 1
+  squeeze_and_excitation: 0
+  weight_decay: 0.0005

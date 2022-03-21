@@ -47,6 +47,26 @@ Vanilla_default_config = {
 } 
 
 config = {} 
+for name in ["vanilla_ResNet3"]: 
+  for num_blocks in [[2,2,1], [1,1,1], [2,1,1]]: 
+    for num_channels in [16, 32, 64]: 
+      for conv in [3, 5]: 
+          exp = name 
+          exp += "_num_blocks" + ['x'.join(str(x) for x in num_blocks)][0]
+          exp += "_num_channels" + str(num_channels) 
+          exp += "_conv" + str(conv) 
+          config[exp] = copy.deepcopy(Vanilla_default_config)
+          config[exp]['num_blocks'] = copy.deepcopy(num_blocks) 
+          config[exp]['num_channels'] = num_channels  
+          config[exp]['conv_kernel_sizes'] = [conv]*len(num_blocks) 
+          config[exp]['shortcut_kernel_sizes'] = [1]*len(num_blocks) 
+print(len(config.keys()))
+pprint(config.keys())
+# exit() 
+
+
+"""
+
 for name in ["vanilla_ResNet4"]: 
   for num_blocks in [[2,1,1,1], [1,1,1,1]]: 
     for num_channels in [16, 32, 64]: 
@@ -62,6 +82,8 @@ for name in ["vanilla_ResNet4"]:
 print(len(config.keys()))
 pprint(config.keys())
 # exit() 
+
+"""
 
 
 """
@@ -103,7 +125,7 @@ for name in ["ResNet18", "baseline_ResNet"]:
 #         config[exp]['num_blocks'] = [2,1,1,1] 
 #     config[exp]['drop'] = dropout 
 
-with open('resnet_configs/sunday_vanilla_ResNets4.yaml', 'w') as file:
+with open('resnet_configs/sunday_vanilla_ResNets3.yaml', 'w') as file:
     yaml.dump(config, file) 
 
 
