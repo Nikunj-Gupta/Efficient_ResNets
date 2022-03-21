@@ -1,9 +1,9 @@
 test:
   avg_pool_kernel_size: 100
-  conv_kernel_sizes: [3,3,3] 
-  num_blocks: [3,3,3] 
-  num_channels: 64
-  shortcut_kernel_sizes: [1, 1,1] 
+  conv_kernel_sizes: [7,7] 
+  num_blocks: [1,1] 
+  num_channels: 128
+  shortcut_kernel_sizes: [1, 1] 
   drop: 0 # proportion for dropout 
   squeeze_and_excitation: 0 # True=1, False=0 
   max_epochs: 200

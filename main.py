@@ -127,7 +127,7 @@ if __name__ == '__main__':
         print("===============================")
         print("Total parameters exceeding 5M") 
         print("===============================")
-        # exit()
+        exit()
     # exit()
 
 
