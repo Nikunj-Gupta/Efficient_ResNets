@@ -46,10 +46,32 @@ Vanilla_default_config = {
   "grad_clip": 0 
 } 
 
+good_default_config = {
+  "avg_pool_kernel_size": 4, 
+  "conv_kernel_sizes": [3, 3, 3, 3],
+  "num_blocks": [2, 2, 2, 2] ,
+  "num_channels": 64,
+  "shortcut_kernel_sizes": [1, 1, 1, 1],
+  "drop": 0.4, 
+  "squeeze_and_excitation": 0, 
+  "max_epochs": 200,
+  "optim": "sgd" ,
+  "lr_sched": "CosineAnnealingLR",
+  "momentum": 0.9,
+  "lr": 0.1 ,
+  "weight_decay": 0.0005 ,
+  "batch_size": 128,
+  "num_workers": 16,
+  "resume_ckpt": 0,
+  "data_augmentation": 1, 
+  "data_normalize": 1, 
+  "grad_clip": 0.1 
+} 
+
 config = {} 
 
 
-for name in ["vanilla_ResNet2"]: 
+for name in ["good_ResNet2"]: 
   for num_blocks in [[2,2], [1,1], [2,1]]: 
     for num_channels in [16, 32, 64, 128]: 
       for conv in [3, 5, 7]: 
@@ -57,7 +79,7 @@ for name in ["vanilla_ResNet2"]:
           exp += "_num_blocks" + ['x'.join(str(x) for x in num_blocks)][0]
           exp += "_num_channels" + str(num_channels) 
           exp += "_conv" + str(conv) 
-          config[exp] = copy.deepcopy(Vanilla_default_config)
+          config[exp] = copy.deepcopy(good_default_config)
           config[exp]['num_blocks'] = copy.deepcopy(num_blocks) 
           config[exp]['num_channels'] = num_channels  
           config[exp]['conv_kernel_sizes'] = [conv]*len(num_blocks) 
@@ -65,11 +87,12 @@ for name in ["vanilla_ResNet2"]:
 print(len(config.keys()))
 pprint(config.keys())
 # exit() 
+with open('resnet_configs/sunday_good_ResNets2.yaml', 'w') as file:
+    yaml.dump(config, file) 
 
+config = {} 
 
-"""
-
-for name in ["vanilla_ResNet3"]: 
+for name in ["good_ResNet3"]: 
   for num_blocks in [[2,2,1], [1,1,1], [2,1,1]]: 
     for num_channels in [16, 32, 64]: 
       for conv in [3, 5]: 
@@ -77,7 +100,7 @@ for name in ["vanilla_ResNet3"]:
           exp += "_num_blocks" + ['x'.join(str(x) for x in num_blocks)][0]
           exp += "_num_channels" + str(num_channels) 
           exp += "_conv" + str(conv) 
-          config[exp] = copy.deepcopy(Vanilla_default_config)
+          config[exp] = copy.deepcopy(good_default_config)
           config[exp]['num_blocks'] = copy.deepcopy(num_blocks) 
           config[exp]['num_channels'] = num_channels  
           config[exp]['conv_kernel_sizes'] = [conv]*len(num_blocks) 
@@ -85,13 +108,12 @@ for name in ["vanilla_ResNet3"]:
 print(len(config.keys()))
 pprint(config.keys())
 # exit() 
+with open('resnet_configs/sunday_good_ResNets3.yaml', 'w') as file:
+    yaml.dump(config, file) 
 
-"""
+config = {} 
 
-
-"""
-
-for name in ["vanilla_ResNet4"]: 
+for name in ["good_ResNet4"]: 
   for num_blocks in [[2,1,1,1], [1,1,1,1]]: 
     for num_channels in [16, 32, 64]: 
       # for conv in [3, 5, 7]: 
@@ -99,15 +121,16 @@ for name in ["vanilla_ResNet4"]:
           exp += "_num_blocks" + ['x'.join(str(x) for x in num_blocks)][0]
           exp += "_num_channels" + str(num_channels) 
           # exp += "_conv" + str(conv) 
-          config[exp] = copy.deepcopy(Vanilla_default_config)
+          config[exp] = copy.deepcopy(good_default_config)
           config[exp]['num_blocks'] = copy.deepcopy(num_blocks) 
           config[exp]['num_channels'] = num_channels  
           # config[exp]['conv'] = [conv]*len(num_blocks) 
 print(len(config.keys()))
 pprint(config.keys())
 # exit() 
+with open('resnet_configs/sunday_good_ResNets4.yaml', 'w') as file:
+    yaml.dump(config, file) 
 
-"""
 
 
 """
