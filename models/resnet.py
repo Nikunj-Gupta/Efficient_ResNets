@@ -20,9 +20,9 @@ class BasicBlock(nn.Module):
         Skip connection (shortcut) kernel size Ki 
         """
         super(BasicBlock, self).__init__()
-        self.conv1 = nn.Conv2d(in_planes, planes, kernel_size=conv_kernel_size, stride=stride, padding=1, bias=False)
+        self.conv1 = nn.Conv2d(in_planes, planes, kernel_size=conv_kernel_size, stride=stride, padding=int(conv_kernel_size/2), bias=False)
         self.bn1 = nn.BatchNorm2d(planes)
-        self.conv2 = nn.Conv2d(planes, planes, kernel_size=conv_kernel_size,stride=1, padding=1, bias=False)
+        self.conv2 = nn.Conv2d(planes, planes, kernel_size=conv_kernel_size,stride=1, padding=int(conv_kernel_size/2), bias=False)
         self.bn2 = nn.BatchNorm2d(planes)
 
         self.shortcut = nn.Sequential()
@@ -152,7 +152,8 @@ class ResNet(nn.Module):
             squeeze_and_excitation=None):
         super(ResNet, self).__init__()
         self.in_planes = num_channels
-        self.avg_pool_kernel_size = avg_pool_kernel_size 
+        # self.avg_pool_kernel_size = avg_pool_kernel_size 
+        self.avg_pool_kernel_size = int(32 / (2**(len(num_blocks)-1)))
         
         """
         # of channels Ci 
@@ -185,7 +186,7 @@ class ResNet(nn.Module):
                                                     shortcut_kernel_size=shortcut_kernel_size)) 
 
         self.residual_layers = nn.ModuleList(self.residual_layers)
-        self.linear = nn.Linear(int((64*self.num_channels)/(2**n))*block.expansion, num_classes) 
+        self.linear = nn.Linear(self.num_channels*(2**n)*block.expansion, num_classes) 
         """
         Dropout layer 
         """
