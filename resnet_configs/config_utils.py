@@ -91,9 +91,9 @@ se_and_drop_on_good_default_config = {
 } 
 config = {} 
 
-for name in ["se_drop_good_ResNet4"]: 
+for name in ["se_fulldrop_good_ResNet4"]: 
   for num_blocks in [[2,1,1,1], [1,1,1,1]]: 
-    for squeeze_and_excitation in [1]: 
+    for squeeze_and_excitation in [0,1]: 
       for drop in [0, 0.2, 0.4, 0.6, 0.8]: 
           exp = name 
           exp += "_num_blocks" + ['x'.join(str(x) for x in num_blocks)][0]
@@ -106,7 +106,7 @@ for name in ["se_drop_good_ResNet4"]:
 print(len(config.keys()))
 pprint(config.keys())
 # exit() 
-with open('resnet_configs/se_drop_good_ResNet4.yaml', 'w') as file:
+with open('resnet_configs/se_fulldrop_good_ResNet4.yaml', 'w') as file:
     yaml.dump(config, file) 
 
 

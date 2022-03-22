@@ -14,12 +14,13 @@ import numpy as np
 class BasicBlock(nn.Module):
     expansion = 1
 
-    def __init__(self, in_planes, planes, stride=1, conv_kernel_size=3, shortcut_kernel_size=1):
+    def __init__(self, in_planes, planes, stride=1, conv_kernel_size=3, shortcut_kernel_size=1, drop=0.4):
         """
         Convolutional Layer kernel size Fi 
         Skip connection (shortcut) kernel size Ki 
         """
         super(BasicBlock, self).__init__()
+        self.drop = drop 
         self.conv1 = nn.Conv2d(in_planes, planes, kernel_size=conv_kernel_size, stride=stride, padding=int(conv_kernel_size/2), bias=False)
         self.bn1 = nn.BatchNorm2d(planes)
         self.conv2 = nn.Conv2d(planes, planes, kernel_size=conv_kernel_size,stride=1, padding=int(conv_kernel_size/2), bias=False)
@@ -31,12 +32,14 @@ class BasicBlock(nn.Module):
                 nn.Conv2d(in_planes, self.expansion*planes,kernel_size=shortcut_kernel_size, stride=stride, padding=int(shortcut_kernel_size/2), bias=False),
                 nn.BatchNorm2d(self.expansion*planes)
             )
+        if self.drop: self.dropout = nn.Dropout(self.drop)
 
     def forward(self, x):
         out = F.relu(self.bn1(self.conv1(x)))
         out = self.bn2(self.conv2(out))
         out += self.shortcut(x)
         out = F.relu(out)
+        if self.drop: out = self.dropout(out)
         return out
 
 
@@ -197,7 +200,7 @@ class ResNet(nn.Module):
         strides = [stride] + [1]*(num_blocks-1)
         layers = []
         for stride in strides:
-            layers.append(block(self.in_planes, planes, stride, conv_kernel_size, shortcut_kernel_size))
+            layers.append(block(self.in_planes, planes, stride, conv_kernel_size, shortcut_kernel_size, drop=self.drop))
             self.in_planes = planes * block.expansion
         return nn.Sequential(*layers)
 

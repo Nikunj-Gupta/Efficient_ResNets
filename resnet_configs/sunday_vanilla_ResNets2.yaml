@@ -1,4 +1,164 @@
-se_drop_good_ResNet4_num_blocks1x1x1x1_squeeze_and_excitation1_drop0:
+se_fulldrop_good_ResNet4_num_blocks1x1x1x1_squeeze_and_excitation0_drop0:
+  avg_pool_kernel_size: 4
+  batch_size: 128
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  data_augmentation: 1
+  data_normalize: 1
+  drop: 0
+  grad_clip: 0.1
+  lr: 0.1
+  lr_sched: CosineAnnealingLR
+  max_epochs: 200
+  momentum: 0.9
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  num_workers: 16
+  optim: sgd
+  resume_ckpt: 0
+  shortcut_kernel_sizes:
+  - 1
+  - 1
+  - 1
+  - 1
+  squeeze_and_excitation: 0
+  weight_decay: 0.0005
+se_fulldrop_good_ResNet4_num_blocks1x1x1x1_squeeze_and_excitation0_drop0.2:
+  avg_pool_kernel_size: 4
+  batch_size: 128
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  data_augmentation: 1
+  data_normalize: 1
+  drop: 0.2
+  grad_clip: 0.1
+  lr: 0.1
+  lr_sched: CosineAnnealingLR
+  max_epochs: 200
+  momentum: 0.9
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  num_workers: 16
+  optim: sgd
+  resume_ckpt: 0
+  shortcut_kernel_sizes:
+  - 1
+  - 1
+  - 1
+  - 1
+  squeeze_and_excitation: 0
+  weight_decay: 0.0005
+se_fulldrop_good_ResNet4_num_blocks1x1x1x1_squeeze_and_excitation0_drop0.4:
+  avg_pool_kernel_size: 4
+  batch_size: 128
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  data_augmentation: 1
+  data_normalize: 1
+  drop: 0.4
+  grad_clip: 0.1
+  lr: 0.1
+  lr_sched: CosineAnnealingLR
+  max_epochs: 200
+  momentum: 0.9
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  num_workers: 16
+  optim: sgd
+  resume_ckpt: 0
+  shortcut_kernel_sizes:
+  - 1
+  - 1
+  - 1
+  - 1
+  squeeze_and_excitation: 0
+  weight_decay: 0.0005
+se_fulldrop_good_ResNet4_num_blocks1x1x1x1_squeeze_and_excitation0_drop0.6:
+  avg_pool_kernel_size: 4
+  batch_size: 128
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  data_augmentation: 1
+  data_normalize: 1
+  drop: 0.6
+  grad_clip: 0.1
+  lr: 0.1
+  lr_sched: CosineAnnealingLR
+  max_epochs: 200
+  momentum: 0.9
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  num_workers: 16
+  optim: sgd
+  resume_ckpt: 0
+  shortcut_kernel_sizes:
+  - 1
+  - 1
+  - 1
+  - 1
+  squeeze_and_excitation: 0
+  weight_decay: 0.0005
+se_fulldrop_good_ResNet4_num_blocks1x1x1x1_squeeze_and_excitation0_drop0.8:
+  avg_pool_kernel_size: 4
+  batch_size: 128
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  data_augmentation: 1
+  data_normalize: 1
+  drop: 0.8
+  grad_clip: 0.1
+  lr: 0.1
+  lr_sched: CosineAnnealingLR
+  max_epochs: 200
+  momentum: 0.9
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  num_workers: 16
+  optim: sgd
+  resume_ckpt: 0
+  shortcut_kernel_sizes:
+  - 1
+  - 1
+  - 1
+  - 1
+  squeeze_and_excitation: 0
+  weight_decay: 0.0005
+se_fulldrop_good_ResNet4_num_blocks1x1x1x1_squeeze_and_excitation1_drop0:
   avg_pool_kernel_size: 4
   batch_size: 128
   conv_kernel_sizes:
@@ -30,7 +190,7 @@ se_drop_good_ResNet4_num_blocks1x1x1x1_squeeze_and_excitation1_drop0:
   - 1
   squeeze_and_excitation: 1
   weight_decay: 0.0005
-se_drop_good_ResNet4_num_blocks1x1x1x1_squeeze_and_excitation1_drop0.2:
+se_fulldrop_good_ResNet4_num_blocks1x1x1x1_squeeze_and_excitation1_drop0.2:
   avg_pool_kernel_size: 4
   batch_size: 128
   conv_kernel_sizes:
@@ -62,7 +222,7 @@ se_drop_good_ResNet4_num_blocks1x1x1x1_squeeze_and_excitation1_drop0.2:
   - 1
   squeeze_and_excitation: 1
   weight_decay: 0.0005
-se_drop_good_ResNet4_num_blocks1x1x1x1_squeeze_and_excitation1_drop0.4:
+se_fulldrop_good_ResNet4_num_blocks1x1x1x1_squeeze_and_excitation1_drop0.4:
   avg_pool_kernel_size: 4
   batch_size: 128
   conv_kernel_sizes:
@@ -94,7 +254,7 @@ se_drop_good_ResNet4_num_blocks1x1x1x1_squeeze_and_excitation1_drop0.4:
   - 1
   squeeze_and_excitation: 1
   weight_decay: 0.0005
-se_drop_good_ResNet4_num_blocks1x1x1x1_squeeze_and_excitation1_drop0.6:
+se_fulldrop_good_ResNet4_num_blocks1x1x1x1_squeeze_and_excitation1_drop0.6:
   avg_pool_kernel_size: 4
   batch_size: 128
   conv_kernel_sizes:
@@ -126,7 +286,7 @@ se_drop_good_ResNet4_num_blocks1x1x1x1_squeeze_and_excitation1_drop0.6:
   - 1
   squeeze_and_excitation: 1
   weight_decay: 0.0005
-se_drop_good_ResNet4_num_blocks1x1x1x1_squeeze_and_excitation1_drop0.8:
+se_fulldrop_good_ResNet4_num_blocks1x1x1x1_squeeze_and_excitation1_drop0.8:
   avg_pool_kernel_size: 4
   batch_size: 128
   conv_kernel_sizes:
@@ -158,7 +318,167 @@ se_drop_good_ResNet4_num_blocks1x1x1x1_squeeze_and_excitation1_drop0.8:
   - 1
   squeeze_and_excitation: 1
   weight_decay: 0.0005
-se_drop_good_ResNet4_num_blocks2x1x1x1_squeeze_and_excitation1_drop0:
+se_fulldrop_good_ResNet4_num_blocks2x1x1x1_squeeze_and_excitation0_drop0:
+  avg_pool_kernel_size: 4
+  batch_size: 128
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  data_augmentation: 1
+  data_normalize: 1
+  drop: 0
+  grad_clip: 0.1
+  lr: 0.1
+  lr_sched: CosineAnnealingLR
+  max_epochs: 200
+  momentum: 0.9
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  num_workers: 16
+  optim: sgd
+  resume_ckpt: 0
+  shortcut_kernel_sizes:
+  - 1
+  - 1
+  - 1
+  - 1
+  squeeze_and_excitation: 0
+  weight_decay: 0.0005
+se_fulldrop_good_ResNet4_num_blocks2x1x1x1_squeeze_and_excitation0_drop0.2:
+  avg_pool_kernel_size: 4
+  batch_size: 128
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  data_augmentation: 1
+  data_normalize: 1
+  drop: 0.2
+  grad_clip: 0.1
+  lr: 0.1
+  lr_sched: CosineAnnealingLR
+  max_epochs: 200
+  momentum: 0.9
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  num_workers: 16
+  optim: sgd
+  resume_ckpt: 0
+  shortcut_kernel_sizes:
+  - 1
+  - 1
+  - 1
+  - 1
+  squeeze_and_excitation: 0
+  weight_decay: 0.0005
+se_fulldrop_good_ResNet4_num_blocks2x1x1x1_squeeze_and_excitation0_drop0.4:
+  avg_pool_kernel_size: 4
+  batch_size: 128
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  data_augmentation: 1
+  data_normalize: 1
+  drop: 0.4
+  grad_clip: 0.1
+  lr: 0.1
+  lr_sched: CosineAnnealingLR
+  max_epochs: 200
+  momentum: 0.9
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  num_workers: 16
+  optim: sgd
+  resume_ckpt: 0
+  shortcut_kernel_sizes:
+  - 1
+  - 1
+  - 1
+  - 1
+  squeeze_and_excitation: 0
+  weight_decay: 0.0005
+se_fulldrop_good_ResNet4_num_blocks2x1x1x1_squeeze_and_excitation0_drop0.6:
+  avg_pool_kernel_size: 4
+  batch_size: 128
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  data_augmentation: 1
+  data_normalize: 1
+  drop: 0.6
+  grad_clip: 0.1
+  lr: 0.1
+  lr_sched: CosineAnnealingLR
+  max_epochs: 200
+  momentum: 0.9
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  num_workers: 16
+  optim: sgd
+  resume_ckpt: 0
+  shortcut_kernel_sizes:
+  - 1
+  - 1
+  - 1
+  - 1
+  squeeze_and_excitation: 0
+  weight_decay: 0.0005
+se_fulldrop_good_ResNet4_num_blocks2x1x1x1_squeeze_and_excitation0_drop0.8:
+  avg_pool_kernel_size: 4
+  batch_size: 128
+  conv_kernel_sizes:
+  - 3
+  - 3
+  - 3
+  - 3
+  data_augmentation: 1
+  data_normalize: 1
+  drop: 0.8
+  grad_clip: 0.1
+  lr: 0.1
+  lr_sched: CosineAnnealingLR
+  max_epochs: 200
+  momentum: 0.9
+  num_blocks:
+  - 2
+  - 1
+  - 1
+  - 1
+  num_channels: 64
+  num_workers: 16
+  optim: sgd
+  resume_ckpt: 0
+  shortcut_kernel_sizes:
+  - 1
+  - 1
+  - 1
+  - 1
+  squeeze_and_excitation: 0
+  weight_decay: 0.0005
+se_fulldrop_good_ResNet4_num_blocks2x1x1x1_squeeze_and_excitation1_drop0:
   avg_pool_kernel_size: 4
   batch_size: 128
   conv_kernel_sizes:
@@ -190,7 +510,7 @@ se_drop_good_ResNet4_num_blocks2x1x1x1_squeeze_and_excitation1_drop0:
   - 1
   squeeze_and_excitation: 1
   weight_decay: 0.0005
-se_drop_good_ResNet4_num_blocks2x1x1x1_squeeze_and_excitation1_drop0.2:
+se_fulldrop_good_ResNet4_num_blocks2x1x1x1_squeeze_and_excitation1_drop0.2:
   avg_pool_kernel_size: 4
   batch_size: 128
   conv_kernel_sizes:
@@ -222,7 +542,7 @@ se_drop_good_ResNet4_num_blocks2x1x1x1_squeeze_and_excitation1_drop0.2:
   - 1
   squeeze_and_excitation: 1
   weight_decay: 0.0005
-se_drop_good_ResNet4_num_blocks2x1x1x1_squeeze_and_excitation1_drop0.4:
+se_fulldrop_good_ResNet4_num_blocks2x1x1x1_squeeze_and_excitation1_drop0.4:
   avg_pool_kernel_size: 4
   batch_size: 128
   conv_kernel_sizes:
@@ -254,7 +574,7 @@ se_drop_good_ResNet4_num_blocks2x1x1x1_squeeze_and_excitation1_drop0.4:
   - 1
   squeeze_and_excitation: 1
   weight_decay: 0.0005
-se_drop_good_ResNet4_num_blocks2x1x1x1_squeeze_and_excitation1_drop0.6:
+se_fulldrop_good_ResNet4_num_blocks2x1x1x1_squeeze_and_excitation1_drop0.6:
   avg_pool_kernel_size: 4
   batch_size: 128
   conv_kernel_sizes:
@@ -286,7 +606,7 @@ se_drop_good_ResNet4_num_blocks2x1x1x1_squeeze_and_excitation1_drop0.6:
   - 1
   squeeze_and_excitation: 1
   weight_decay: 0.0005
-se_drop_good_ResNet4_num_blocks2x1x1x1_squeeze_and_excitation1_drop0.8:
+se_fulldrop_good_ResNet4_num_blocks2x1x1x1_squeeze_and_excitation1_drop0.8:
   avg_pool_kernel_size: 4
   batch_size: 128
   conv_kernel_sizes:
