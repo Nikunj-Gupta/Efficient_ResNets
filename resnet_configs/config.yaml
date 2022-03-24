@@ -12,8 +12,8 @@ best_model:
   momentum: 0.9
   lr: 0.1 
   weight_decay: 0.0005 
-  batch_size: 12
-  num_workers: 1
+  batch_size: 128
+  num_workers: 16
   resume_ckpt: 0 # 0 if not resuming, else path to checkpoint  
   data_augmentation: 1 # True=1, False=0 
   data_normalize: 1 # True=1, False=0 

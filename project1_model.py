@@ -189,16 +189,17 @@ class ResNet(nn.Module):
         return out
 
 
-def get_ResNet(config): 
+def get_ResNet(config=None): 
+    # Best Model 
     net =  ResNet(
             block=BasicBlock, 
-            num_blocks=config['num_blocks'],                          # N: number of Residual Layers | Bi:Residual blocks in Residual Layer i 
-            conv_kernel_sizes=config['conv_kernel_sizes'],            # Fi: Conv. kernel size in Residual Layer i 
-            shortcut_kernel_sizes=config['shortcut_kernel_sizes'],    # Ki: Skip connection kernel size in Residual Layer i 
-            num_channels=config['num_channels'],                      # Ci: # channels in Residual Layer i 
-            avg_pool_kernel_size=config['avg_pool_kernel_size'],      # P: Average pool kernel size 
-            drop=config['drop'],                                      # use dropout with drop proportion 
-            squeeze_and_excitation=config['squeeze_and_excitation']   # Enable/disable Squeeze-and-Excitation Block 
+            num_blocks=[4, 4, 3],                          # N: number of Residual Layers | Bi:Residual blocks in Residual Layer i 
+            conv_kernel_sizes=[3, 3, 3],            # Fi: Conv. kernel size in Residual Layer i 
+            shortcut_kernel_sizes=[1, 1, 1] ,    # Ki: Skip connection kernel size in Residual Layer i 
+            num_channels=64,                      # Ci: # channels in Residual Layer i 
+            avg_pool_kernel_size=8,      # P: Average pool kernel size 
+            drop=0,                                      # use dropout with drop proportion 
+            squeeze_and_excitation=1   # Enable/disable Squeeze-and-Excitation Block 
         ) 
     
     total_params = 0 
@@ -207,56 +208,3 @@ def get_ResNet(config):
     # print("Total number of params", total_params)
     # print("Total layers", len(list(filter(lambda p: p.requires_grad and len(p.data.size())>1, net.parameters())))) 
     return net, total_params 
-
-
-def get_ResNet_default():
-    return ResNet(
-        block=BasicBlock, 
-        num_blocks=[2,1,1,1],               # N: number of Residual Layers | Bi:Residual blocks in Residual Layer i 
-        conv_kernel_sizes=[3,3,3,3],        # Fi: Conv. kernel size in Residual Layer i 
-        shortcut_kernel_sizes=[1,1,1,1],    # Ki: Skip connection kernel size in Residual Layer i 
-        num_channels=64,                    # Ci: # channels in Residual Layer i
-        avg_pool_kernel_size=4              # P: Average pool kernel size 
-    ) 
-
-
-def ResNet9():
-    return ResNet(BasicBlock, [2, 1, 1, 1])
-
-def ResNet18():
-    return ResNet(BasicBlock, [2, 2, 2, 2])
-
-
-def ResNet34():
-    return ResNet(BasicBlock, [3, 4, 6, 3])
-
-
-def ResNet50():
-    return ResNet(Bottleneck, [3, 4, 6, 3])
-
-
-def ResNet101():
-    return ResNet(Bottleneck, [3, 4, 23, 3])
-
-
-def ResNet152():
-    return ResNet(Bottleneck, [3, 8, 36, 3])
-
-
-def test():
-    net = ResNet18()
-    y = net(torch.randn(1, 3, 32, 32))
-    print(y.size())
-
-def test2():
-    net = get_ResNet_default()
-    total_params = 0 
-    print(net)
-
-    for x in filter(lambda p: p.requires_grad, net.parameters()):
-        total_params += np.prod(x.data.numpy().shape)
-    print("Total number of params", total_params)
-    print("Total layers", len(list(filter(lambda p: p.requires_grad and len(p.data.size())>1, net.parameters()))))
-
-# test() 
-# test2() 

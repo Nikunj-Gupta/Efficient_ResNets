@@ -1,9 +1,10 @@
 '''Train CIFAR10 with PyTorch.'''
 import torch, torch.nn as nn, torch.optim as optim, torch.nn.functional as F, torch.backends.cudnn as cudnn  
 import torchvision, torchvision.transforms as transforms
-import os, argparse, yaml, math 
+import os, argparse, yaml, math, numpy as np
 from torch.utils.tensorboard import SummaryWriter
-from models import *
+# from models import * 
+from project1_model import get_ResNet
 from torchsummary import summary
 from lookahead import Lookahead 
 
@@ -118,11 +119,8 @@ if __name__ == '__main__':
 
     classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
     
-    # net = get_ResNet_default() 
-
     net, total_params = get_ResNet(config=config) 
     config['total_params'] = total_params 
-    # summary(net, input_size=(3, 32,32)) 
     print(net)
     print('Total Parameters: ', total_params) 
 
