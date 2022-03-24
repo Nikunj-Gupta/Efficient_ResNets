@@ -189,7 +189,7 @@ class ResNet(nn.Module):
         return out
 
 
-def get_ResNet(config=None): 
+def project1_model(config=None): 
     # Best Model 
     net =  ResNet(
             block=BasicBlock, 

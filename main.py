@@ -4,7 +4,7 @@ import torchvision, torchvision.transforms as transforms
 import os, argparse, yaml, math, numpy as np
 from torch.utils.tensorboard import SummaryWriter
 # from models import * 
-from project1_model import get_ResNet
+from project1_model import project1_model
 from torchsummary import summary
 from lookahead import Lookahead 
 
@@ -119,7 +119,7 @@ if __name__ == '__main__':
 
     classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
     
-    net, total_params = get_ResNet(config=config) 
+    net, total_params = project1_model(config=config) 
     config['total_params'] = total_params 
     print(net)
     print('Total Parameters: ', total_params) 
