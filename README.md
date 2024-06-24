@@ -77,3 +77,13 @@ python3 main.py  --config resnet_configs/config.yaml --resnet_architecture resne
 |batch size |128 |
 |number of workers |16|
 |Total number of Parameters| 4,697,742|
+
+## Cite 
+```
+@article{thakur2023efficient,
+  title={Efficient ResNets: Residual Network Design},
+  author={Thakur, Aditya and Chauhan, Harish and Gupta, Nikunj},
+  journal={arXiv preprint arXiv:2306.12100},
+  year={2023}
+}
+```
