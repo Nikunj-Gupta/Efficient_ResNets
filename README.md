@@ -1,5 +1,7 @@
 # Efficient ResNets: Residual Network Design 
-*Paper:* [Efficient ResNets: Residual Network Design](https://arxiv.org/abs/2306.12100) 
+
+*Paper:* [Efficient ResNets: Residual Network Design](https://arxiv.org/abs/2306.12100)
+
 *Authors:* Nikunj Gupta, Harish Chauhan, Aditya Thakur 
 
 **Summary:** We constructed a Residual Network Design with less than 5 million trainable parameters. We achieved an accuracy of 96.04% on CIFAR-10 dataset by using best-suited hyperparameters and multiple training strategies like data normalization, data augmentation, optimizers, gradient clipping, etc.
